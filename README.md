@@ -1,0 +1,3 @@
+# EquipmentManagement
+Diplom
+Дипломный проэкт
