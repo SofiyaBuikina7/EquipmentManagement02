@@ -37,7 +37,8 @@ namespace EquipmentManagement {
 
         private void потребностьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            var db = new EMConext();
+            OpenTableForm(db.Rrequirements.ToList());
         }
 
         private void категорииToolStripMenuItem_Click(object sender, EventArgs e)
@@ -51,6 +52,15 @@ namespace EquipmentManagement {
         {
             var db = new EMConext();
             OpenTableForm(db.Equipment.ToList());
+        }
+
+        private void подразделенияToolStripMenuItem_Click(object sender, EventArgs e) {
+            var db = new EMConext();
+            OpenTableForm(db.Equipment.ToList());
+        }
+
+        private void MainForm_Load(object sender, EventArgs e) {
+
         }
     }
 }
