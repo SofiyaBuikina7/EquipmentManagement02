@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace EquipmentManagement.Model {
-    public class EMConext: DbContext {
+    public class EMContext: DbContext {
         public DbSet<Category> Categorys { get; set; }
         public DbSet<Equipment> Equipment { get; set; }
         public DbSet<User> Users { get; set; }
@@ -16,8 +16,8 @@ namespace EquipmentManagement.Model {
         public DbSet<Rrequirement> Rrequirements { get; set; }
 
 
-        public EMConext() : base() {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<EMConext, Migrations.Configuration>());
+        public EMContext() : base() {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<EMContext, Migrations.Configuration>());
         }
     }
 }

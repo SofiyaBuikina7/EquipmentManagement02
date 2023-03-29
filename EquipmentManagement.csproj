@@ -58,10 +58,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\ElementForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\ElementForm.Designer.cs">
+      <DependentUpon>ElementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202303081510210_InitialCreate.cs" />
@@ -77,21 +83,26 @@
       <DependentUpon>202303191511592_Add_User_Rrequirement.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\Catalogs\Catalog.cs" />
     <Compile Include="Model\Catalogs\Category.cs" />
     <Compile Include="Model\Catalogs\User.cs" />
+    <Compile Include="Model\TableElement.cs" />
     <Compile Include="Model\Documents\Document.cs" />
     <Compile Include="Model\Documents\Rrequirement.cs" />
     <Compile Include="Model\EMConext.cs" />
     <Compile Include="Model\Catalogs\Equipment.cs" />
-    <Compile Include="ElementsTableForm.cs">
+    <Compile Include="Forms\ElementsTableForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ElementsTableForm.Designer.cs">
+    <Compile Include="Forms\ElementsTableForm.Designer.cs">
       <DependentUpon>ElementsTableForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\ElementForm.resx">
+      <DependentUpon>ElementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303081510210_InitialCreate.resx">
@@ -100,7 +111,7 @@
     <EmbeddedResource Include="Migrations\202303081544562_AddEqipment.resx">
       <DependentUpon>202303081544562_AddEqipment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ElementsTableForm.resx">
+    <EmbeddedResource Include="Forms\ElementsTableForm.resx">
       <DependentUpon>ElementsTableForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303191511592_Add_User_Rrequirement.resx">

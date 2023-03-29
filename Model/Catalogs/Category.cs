@@ -5,12 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace EquipmentManagement.Model.Catalogs {
-    public class Category {
-        public int Id { get; set; }
-        public string Name { get; set; }
+    public class Category: Catalog {
 
-        public override string ToString() {
-            return Name;
-        }
     }
 }

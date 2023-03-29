@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EquipmentManagement.Model.Catalogs {
-    public class User:Catalog {
+namespace EquipmentManagement.Model {
+    public class TableElement {
+        public int Id { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace EquipmentManagement
 {
-    partial class ElementsTableForm
+    partial class ElementsTableForm<TypeEntity>
     {
         /// <summary>
         /// Required designer variable.
@@ -40,14 +40,15 @@
             this.MainListDGV.Name = "MainListDGV";
             this.MainListDGV.Size = new System.Drawing.Size(800, 450);
             this.MainListDGV.TabIndex = 0;
+            this.MainListDGV.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainListDGV_KeyDown);
             // 
-            // NeedsForm
+            // ElementsTableForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.MainListDGV);
-            this.Name = "NeedsForm";
+            this.Name = "ElementsTableForm";
             this.Text = "Need";
             ((System.ComponentModel.ISupportInitialize)(this.MainListDGV)).EndInit();
             this.ResumeLayout(false);
