@@ -17,6 +17,7 @@ namespace EquipmentManagement
     public partial class ElementsTableForm<TypeEntity>: Form where TypeEntity : TableElement, new() {
         public ElementsTableForm(){
             InitializeComponent();
+            this.Text = typeof(TypeEntity).Name + "s";
             //MainListDGV.DataSource = list;
             var ctx = new EMContext();
             var query = ctx.Set<TypeEntity>().AsQueryable();
@@ -31,6 +32,14 @@ namespace EquipmentManagement
                 NewElementForm.Show();
             }
         }
+
+        void PrepareDGV<T>(ref MyDGV MyDataGridView, List<T> DataSource) {
+            MyDataGridView.RowHeadersVisible = false;
+            MyDataGridView.DataSource = DataSource;
+            MyDataGridView.Columns["Id"].Visible = false;
+            Utils.TranslateColumnHeaders<T>(ref MyDataGridView);
+        }
+
 
 
         //public static object GetPropertyValue(object source, string propertyName)

@@ -45,5 +45,9 @@ namespace EquipmentManagement {
         private void MainForm_Load(object sender, EventArgs e) {
 
         }
+
+        private void пользователиToolStripMenuItem_Click(object sender, EventArgs e) {
+            OpenTableForm<User>();
+        }
     }
 }

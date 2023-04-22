@@ -1,4 +1,6 @@
-﻿namespace EquipmentManagement
+﻿using EquipmentManagement.Forms;
+
+namespace EquipmentManagement
 {
     partial class ElementsTableForm<TypeEntity>
     {
@@ -28,7 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.MainListDGV = new System.Windows.Forms.DataGridView();
+            this.MainListDGV = new MyDGV();
             ((System.ComponentModel.ISupportInitialize)(this.MainListDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,6 +59,6 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView MainListDGV;
+        private MyDGV MainListDGV;
     }
 }
