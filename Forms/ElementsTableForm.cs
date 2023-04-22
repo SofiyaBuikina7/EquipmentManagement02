@@ -18,10 +18,16 @@ namespace EquipmentManagement
         public ElementsTableForm(){
             InitializeComponent();
             this.Text = typeof(TypeEntity).Name + "s";
+            LoadTable();
             //MainListDGV.DataSource = list;
+        }
+
+        void LoadTable() {
             var ctx = new EMContext();
             var query = ctx.Set<TypeEntity>().AsQueryable();
-            MainListDGV.DataSource = query.ToList();
+            var MyList = query.ToList();
+            MainListDGV.DataSource = MyList;
+            PrepareDGV(ref MainListDGV, MyList);
             ctx.Dispose();
         }
 
@@ -29,8 +35,25 @@ namespace EquipmentManagement
             if (e.KeyCode == Keys.Insert) {
                 var NewElementForm = new ElementForm<TypeEntity>();
                 NewElementForm.MdiParent = this.MdiParent;
+                NewElementForm.FormClosed += new FormClosedEventHandler(OnChildFormClosed);
                 NewElementForm.Show();
             }
+            if (e.KeyCode == Keys.Enter) {
+                if (MainListDGV.SelectedCells != null && MainListDGV.SelectedCells.Count > 0) {
+                    var MyCell = MainListDGV.SelectedCells[0];
+                    int Id = (int)MainListDGV.Rows[MyCell.RowIndex].Cells["Id"].Value;
+
+                    var NewElementForm = new ElementForm<TypeEntity>(Id);
+                    NewElementForm.MdiParent = this.MdiParent;
+                    NewElementForm.FormClosed += new FormClosedEventHandler(OnChildFormClosed);
+                    NewElementForm.Show();
+                }
+            }
+        }
+
+        void OnChildFormClosed(object sender, FormClosedEventArgs e) {
+            LoadTable();
+            //Form frm = (Form)sender;
         }
 
         void PrepareDGV<T>(ref MyDGV MyDataGridView, List<T> DataSource) {

@@ -22,7 +22,7 @@ namespace EquipmentManagement.Forms {
                 MyElement = new TypeEntity();
             } else {
                 var query = ctx.Set<TypeEntity>().AsQueryable();
-                MyElement = (TableElement)query.Where(t => t.Id == ElementID);
+                MyElement = (TableElement)query.Where(t => t.Id == ElementID).FirstOrDefault();
             }
             int offset = 5;
             int Y = PatternLb.Top;
