@@ -39,17 +39,18 @@ namespace EquipmentManagement {
             }
         }
         private static Settings LoadSettings() {
+            Settings Ret = null;
             if (File.Exists(Settings.SettingsFileName)) {
                 using (StreamReader file = File.OpenText(Settings.SettingsFileName)) {
                     JsonSerializer serializer = new JsonSerializer();
-                    Settings Ret = (Settings)serializer.Deserialize(file, typeof(Settings));
-                    return Ret;
+                    Ret = (Settings)serializer.Deserialize(file, typeof(Settings));
                 }
-            } else {
-                Settings Ret = new Settings();
-                Ret.SaveSettings();
-                return Ret;
             }
+            if (Ret == null) {
+                Ret = new Settings();
+                Ret.SaveSettings();
+            }
+            return Ret;
         }
 
         internal static void SaveTranslations() {

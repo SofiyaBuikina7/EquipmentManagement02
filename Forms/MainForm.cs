@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EquipmentManagement.Forms;
 using EquipmentManagement.Model;
 using EquipmentManagement.Model.Catalogs;
 using EquipmentManagement.Model.Documents;
@@ -48,6 +49,11 @@ namespace EquipmentManagement {
 
         private void пользователиToolStripMenuItem_Click(object sender, EventArgs e) {
             OpenTableForm<User>();
+        }
+
+        private void настройкиToolStripMenuItem_Click(object sender, EventArgs e) {
+            var SettingsFrm = new SettingsForm();
+            SettingsFrm.ShowDialog();
         }
     }
 }
