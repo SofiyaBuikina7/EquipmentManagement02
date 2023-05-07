@@ -12,6 +12,10 @@ namespace EquipmentManagement.Model {
         public DbSet<Category> Categorys { get; set; }
         public DbSet<Equipment> Equipment { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Unit> Units { get; set; }
+        public DbSet<InstallationLocation> InstallationLocations { get; set; }
+        public DbSet<ResponsiblePerson> ResponsiblePersons { get; set; }
+        //
 
         public DbSet<Rrequirement> Rrequirements { get; set; }
 

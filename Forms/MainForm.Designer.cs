@@ -32,12 +32,12 @@ namespace EquipmentManagement {
             this.справочникToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.категорииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оборудываниеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ответственныеЗаТехникуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.настройкиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.пользователиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.местаРасположенияТехникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.единицыИзмеренияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.настройкиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.пользователиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,16 +97,37 @@ namespace EquipmentManagement {
             // категорииToolStripMenuItem
             // 
             this.категорииToolStripMenuItem.Name = "категорииToolStripMenuItem";
-            this.категорииToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.категорииToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
             this.категорииToolStripMenuItem.Text = "Категории";
             this.категорииToolStripMenuItem.Click += new System.EventHandler(this.категорииToolStripMenuItem_Click);
             // 
             // оборудываниеToolStripMenuItem
             // 
             this.оборудываниеToolStripMenuItem.Name = "оборудываниеToolStripMenuItem";
-            this.оборудываниеToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.оборудываниеToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
             this.оборудываниеToolStripMenuItem.Text = "Оборудование";
             this.оборудываниеToolStripMenuItem.Click += new System.EventHandler(this.оборудываниеToolStripMenuItem_Click);
+            // 
+            // ответственныеЗаТехникуToolStripMenuItem
+            // 
+            this.ответственныеЗаТехникуToolStripMenuItem.Name = "ответственныеЗаТехникуToolStripMenuItem";
+            this.ответственныеЗаТехникуToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.ответственныеЗаТехникуToolStripMenuItem.Text = "Ответственные за технику";
+            this.ответственныеЗаТехникуToolStripMenuItem.Click += new System.EventHandler(this.ответственныеЗаТехникуToolStripMenuItem_Click);
+            // 
+            // местаРасположенияТехникиToolStripMenuItem
+            // 
+            this.местаРасположенияТехникиToolStripMenuItem.Name = "местаРасположенияТехникиToolStripMenuItem";
+            this.местаРасположенияТехникиToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.местаРасположенияТехникиToolStripMenuItem.Text = "Места расположения техники";
+            this.местаРасположенияТехникиToolStripMenuItem.Click += new System.EventHandler(this.местаРасположенияТехникиToolStripMenuItem_Click);
+            // 
+            // единицыИзмеренияToolStripMenuItem
+            // 
+            this.единицыИзмеренияToolStripMenuItem.Name = "единицыИзмеренияToolStripMenuItem";
+            this.единицыИзмеренияToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.единицыИзмеренияToolStripMenuItem.Text = "Единицы измерения";
+            this.единицыИзмеренияToolStripMenuItem.Click += new System.EventHandler(this.единицыИзмеренияToolStripMenuItem_Click);
             // 
             // настройкиToolStripMenuItem
             // 
@@ -116,12 +137,6 @@ namespace EquipmentManagement {
             this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
             this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.настройкиToolStripMenuItem.Text = "Настройки";
-            // 
-            // ответственныеЗаТехникуToolStripMenuItem
-            // 
-            this.ответственныеЗаТехникуToolStripMenuItem.Name = "ответственныеЗаТехникуToolStripMenuItem";
-            this.ответственныеЗаТехникуToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.ответственныеЗаТехникуToolStripMenuItem.Text = "Ответственные за технику";
             // 
             // настройкиToolStripMenuItem1
             // 
@@ -136,18 +151,6 @@ namespace EquipmentManagement {
             this.пользователиToolStripMenuItem1.Size = new System.Drawing.Size(203, 22);
             this.пользователиToolStripMenuItem1.Text = "Пользователи";
             this.пользователиToolStripMenuItem1.Click += new System.EventHandler(this.пользователиToolStripMenuItem1_Click);
-            // 
-            // местаРасположенияТехникиToolStripMenuItem
-            // 
-            this.местаРасположенияТехникиToolStripMenuItem.Name = "местаРасположенияТехникиToolStripMenuItem";
-            this.местаРасположенияТехникиToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
-            this.местаРасположенияТехникиToolStripMenuItem.Text = "Места расположения техники";
-            // 
-            // единицыИзмеренияToolStripMenuItem
-            // 
-            this.единицыИзмеренияToolStripMenuItem.Name = "единицыИзмеренияToolStripMenuItem";
-            this.единицыИзмеренияToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
-            this.единицыИзмеренияToolStripMenuItem.Text = "Единицы измерения";
             // 
             // MainForm
             // 

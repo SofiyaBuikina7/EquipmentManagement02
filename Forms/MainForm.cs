@@ -57,5 +57,17 @@ namespace EquipmentManagement {
             SettingsFrm.ShowDialog();
 
         }
+
+        private void единицыИзмеренияToolStripMenuItem_Click(object sender, EventArgs e) {
+            OpenTableForm<Unit>();
+        }
+
+        private void местаРасположенияТехникиToolStripMenuItem_Click(object sender, EventArgs e) {
+            OpenTableForm<InstallationLocation>();
+        }
+
+        private void ответственныеЗаТехникуToolStripMenuItem_Click(object sender, EventArgs e) {
+            OpenTableForm<ResponsiblePerson>();
+        }
     }
 }

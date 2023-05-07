@@ -105,9 +105,24 @@
     <Compile Include="Migrations\202304221003146_UserPassword.designer.cs">
       <DependentUpon>202304221003146_UserPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305072046027_Units_Table.cs" />
+    <Compile Include="Migrations\202305072046027_Units_Table.designer.cs">
+      <DependentUpon>202305072046027_Units_Table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305072050387_InstallationLocations.cs" />
+    <Compile Include="Migrations\202305072050387_InstallationLocations.designer.cs">
+      <DependentUpon>202305072050387_InstallationLocations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305072105202_ResponsiblePerson_Table.cs" />
+    <Compile Include="Migrations\202305072105202_ResponsiblePerson_Table.designer.cs">
+      <DependentUpon>202305072105202_ResponsiblePerson_Table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Catalogs\Catalog.cs" />
     <Compile Include="Model\Catalogs\Category.cs" />
+    <Compile Include="Model\Catalogs\InstallationLocation.cs" />
+    <Compile Include="Model\Catalogs\ResponsiblePerson.cs" />
+    <Compile Include="Model\Catalogs\Unit.cs" />
     <Compile Include="Model\Catalogs\User.cs" />
     <Compile Include="Model\TableElement.cs" />
     <Compile Include="Model\Documents\Document.cs" />
@@ -150,6 +165,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304221003146_UserPassword.resx">
       <DependentUpon>202304221003146_UserPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305072046027_Units_Table.resx">
+      <DependentUpon>202305072046027_Units_Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305072050387_InstallationLocations.resx">
+      <DependentUpon>202305072050387_InstallationLocations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305072105202_ResponsiblePerson_Table.resx">
+      <DependentUpon>202305072105202_ResponsiblePerson_Table.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
