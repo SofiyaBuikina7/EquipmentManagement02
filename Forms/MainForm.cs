@@ -47,13 +47,15 @@ namespace EquipmentManagement {
 
         }
 
-        private void пользователиToolStripMenuItem_Click(object sender, EventArgs e) {
+
+        private void пользователиToolStripMenuItem1_Click(object sender, EventArgs e) {
             OpenTableForm<User>();
         }
 
-        private void настройкиToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void настройкиToolStripMenuItem1_Click(object sender, EventArgs e) {
             var SettingsFrm = new SettingsForm();
             SettingsFrm.ShowDialog();
+
         }
     }
 }
