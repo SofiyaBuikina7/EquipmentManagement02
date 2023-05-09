@@ -10,7 +10,8 @@ namespace EquipmentManagement {
         public static string SettingsFileName = System.IO.Path.GetDirectoryName(Application.ExecutablePath) + @"\Settings.json";
         public static string TranslationsFileName = System.IO.Path.GetDirectoryName(Application.ExecutablePath) + @"\Translations.json";
         public static Settings CurrentSettings = LoadSettings();
-        public static Dictionary<string, Dictionary<string, string>> Translations = LoadTranslations();
+        //public static Dictionary<string, Dictionary<string, string>> Translations = LoadTranslations();
+        public static Dictionary<string, MyDictionary> Translations = LoadTranslations();
 
         public Font TableFont { get; set; }
         public Color EvenForeColor { get; set; }
@@ -58,15 +59,19 @@ namespace EquipmentManagement {
             File.WriteAllText(TranslationsFileName, json);
         }
 
-        private static Dictionary<string, Dictionary<string, string>> LoadTranslations() {
+        private static Dictionary<string, MyDictionary> LoadTranslations() {
             if (File.Exists(TranslationsFileName)) {
                 string json = File.ReadAllText(TranslationsFileName);
-                return JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(json);
+                return JsonConvert.DeserializeObject<Dictionary<string, MyDictionary>>(json);
             } else {
-                return new Dictionary<string, Dictionary<string, string>>();
+                return new Dictionary<string, MyDictionary>();
             }
         }
 
 
+    }
+    public class MyDictionary {
+        public string Name { get; set; }
+        public Dictionary<string, string> MyProperies { get; set; }
     }
 }

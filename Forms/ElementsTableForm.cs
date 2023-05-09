@@ -17,7 +17,7 @@ namespace EquipmentManagement
     public partial class ElementsTableForm<TypeEntity>: Form where TypeEntity : TableElement, new() {
         public ElementsTableForm(){
             InitializeComponent();
-            this.Text = typeof(TypeEntity).Name + "s";
+            this.Text = Utils.GetTableNameTranslation<TypeEntity>();
             LoadTable();
             //MainListDGV.DataSource = list;
         }
@@ -28,7 +28,9 @@ namespace EquipmentManagement
             var MyList = query.ToList();
             MainListDGV.DataSource = MyList;
             PrepareDGV(ref MainListDGV, MyList);
+            SetTablesStyle();
             ctx.Dispose();
+            MainListDGV.ColumnsResize();
         }
 
         private void MainListDGV_KeyDown(object sender, KeyEventArgs e) {
@@ -64,31 +66,28 @@ namespace EquipmentManagement
         }
 
 
-
-        //public static object GetPropertyValue(object source, string propertyName)
-        //{
-        //    PropertyInfo property = source.GetType().GetProperty(propertyName);
-        //    return property.GetValue(source, null);
-        //}
-
-        //public static IQueryable Set(DbContext context, Type T) {
-        //    // Get the generic type definition
-        //    MethodInfo method = typeof(DbContext).GetMethod(nameof(DbContext.Set), BindingFlags.Public | BindingFlags.Instance);
-
-        //    // Build a method with the specific type argument you're interested in
-        //    method = method.MakeGenericMethod(T);
-
-        //    return method.Invoke(context, null) as IQueryable;
-        //}
-
-        //public static IQueryable<T> Set<T>(EMConext context) {
-        //    // Get the generic type definition 
-        //    MethodInfo method = typeof(EMConext).GetMethod(nameof(EMConext.Set), BindingFlags.Public | BindingFlags.Instance);
-
-        //    // Build a method with the specific type argument you're interested in 
-        //    method = method.MakeGenericMethod(typeof(T));
-
-        //    return method.Invoke(context, null) as IQueryable<T>;
-        //}
+        public void SetTablesStyle() {
+            foreach (var control in Controls) {
+                if (control.GetType() == typeof(DataGridView) || control.GetType() == typeof(MyDGV)) {
+                    var DGV = (DataGridView)control;
+                    if (Settings.CurrentSettings.TableFont != null) {
+                        DGV.DefaultCellStyle.Font = Settings.CurrentSettings.TableFont;
+                        //DGV.ColumnHeadersDefaultCellStyle.Font = DGV.DefaultCellStyle.Font;
+                    }
+                    if (Settings.CurrentSettings.EvenForeColor != null) {
+                        DGV.DefaultCellStyle.ForeColor = Settings.CurrentSettings.EvenForeColor;
+                    }
+                    if (Settings.CurrentSettings.EvenBackColor != null) {
+                        DGV.DefaultCellStyle.BackColor = Settings.CurrentSettings.EvenBackColor;
+                    }
+                    if (Settings.CurrentSettings.OddForeColor != null) {
+                        DGV.AlternatingRowsDefaultCellStyle.ForeColor = Settings.CurrentSettings.OddForeColor;
+                    }
+                    if (Settings.CurrentSettings.OddBackColor != null) {
+                        DGV.AlternatingRowsDefaultCellStyle.BackColor = Settings.CurrentSettings.OddBackColor;
+                    }
+                }
+            }
+        }
     }
 }

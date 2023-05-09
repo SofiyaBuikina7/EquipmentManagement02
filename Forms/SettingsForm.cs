@@ -22,8 +22,6 @@ namespace EquipmentManagement.Forms {
             }
             OddRowDisplayTb.Text = EvenRowDisplayTb.Text;
             OddRowDisplayTb.Font = EvenRowDisplayTb.Font;
-            BadRowDisplayTb.Text = EvenRowDisplayTb.Text;
-            BadRowDisplayTb.Font = EvenRowDisplayTb.Font;
 
 
 
@@ -39,18 +37,10 @@ namespace EquipmentManagement.Forms {
             if (Settings.CurrentSettings.OddBackColor != null) {
                 OddRowDisplayTb.BackColor = Settings.CurrentSettings.OddBackColor;
             }
-            if (Settings.CurrentSettings.BadForeColor != null) {
-                BadRowDisplayTb.ForeColor = Settings.CurrentSettings.BadForeColor;
-            }
-            if (Settings.CurrentSettings.BadBackColor != null) {
-                BadRowDisplayTb.BackColor = Settings.CurrentSettings.BadBackColor;
-            }
             EvenForeColorTb.BackColor = EvenRowDisplayTb.ForeColor;
             EvenBackColorTb.BackColor = EvenRowDisplayTb.BackColor;
             OddForeColorTb.BackColor = OddRowDisplayTb.ForeColor;
             OddBackColorTb.BackColor = OddRowDisplayTb.BackColor;
-            BadForeColorTb.BackColor = BadRowDisplayTb.ForeColor;
-            BadBackColorTb.BackColor = BadRowDisplayTb.BackColor;
         }
 
    
@@ -65,8 +55,6 @@ namespace EquipmentManagement.Forms {
                 EvenRowDisplayTb.Font = fontDialog.Font;
                 OddRowDisplayTb.Text = EvenRowDisplayTb.Text;
                 OddRowDisplayTb.Font = EvenRowDisplayTb.Font;
-                BadRowDisplayTb.Text = EvenRowDisplayTb.Text;
-                BadRowDisplayTb.Font = EvenRowDisplayTb.Font;
             }
         }
 
@@ -86,13 +74,7 @@ namespace EquipmentManagement.Forms {
             SetColor(sender, ref OddRowDisplayTb, false);
         }
 
-        private void BadForeColorTb_DoubleClick(object sender, EventArgs e) {
-            SetColor(sender, ref BadRowDisplayTb, true);
-        }
-
-        private void BadBackColorTb_DoubleClick(object sender, EventArgs e) {
-            SetColor(sender, ref BadRowDisplayTb, false);
-        }
+        
 
         void SetColor(object sender, ref TextBox textBox, bool fore) {
             ColorDialog colorDialog = new ColorDialog();
@@ -108,7 +90,15 @@ namespace EquipmentManagement.Forms {
             }
         }
 
+        private void ApplyLicenseBtn_Click(object sender, EventArgs e) {
+            Settings.CurrentSettings.EvenForeColor = EvenRowDisplayTb.ForeColor;
+            Settings.CurrentSettings.EvenBackColor = EvenRowDisplayTb.BackColor;
+            Settings.CurrentSettings.OddForeColor = OddRowDisplayTb.ForeColor;
+            Settings.CurrentSettings.OddBackColor = OddRowDisplayTb.BackColor;
+            Settings.CurrentSettings.TableFont = EvenRowDisplayTb.Font;
+            Settings.CurrentSettings.SaveSettings();
 
+        }
     }
 
 }

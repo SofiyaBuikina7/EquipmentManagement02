@@ -16,7 +16,7 @@ namespace EquipmentManagement.Forms {
         TableElement MyElement;
         public ElementForm(int ElementID = -1) {
             InitializeComponent();
-            this.Text = typeof(TypeEntity).Name;
+            this.Text = Utils.GetTableNameTranslation<TypeEntity>(); 
             
             if (ElementID == -1) {
                 MyElement = new TypeEntity();
@@ -35,7 +35,9 @@ namespace EquipmentManagement.Forms {
                     PropTb.Name = Prop.Name + "Tb";
                     PropLb.Top = Y;
                     PropTb.Top = Y;
-                    PropLb.Text = Prop.Name;
+
+                    PropLb.Text = Utils.GetColumnTranslation<TypeEntity>(Prop.Name);
+
                     var Text = Prop.GetValue(MyElement);
                     if (Text != null) {
                         PropTb.Text = Prop.GetValue(MyElement).ToString();

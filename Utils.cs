@@ -13,7 +13,7 @@ namespace EquipmentManagement {
             bool NeedToAddTable = false;
             Dictionary<string, string> ColumnTranslation;
             if (Settings.Translations.Keys.Contains(typeof(T).Name)) {
-                ColumnTranslation = Settings.Translations[typeof(T).Name];
+                ColumnTranslation = Settings.Translations[typeof(T).Name].MyProperies;
             } else {
                 ColumnTranslation = new Dictionary<string, string>();
                 NeedToAddTable = true;
@@ -29,7 +29,7 @@ namespace EquipmentManagement {
                 }
             }
             if (NeedToAddTable) {
-                Settings.Translations.Add(typeof(T).Name, ColumnTranslation);
+                Settings.Translations.Add(typeof(T).Name, new MyDictionary { Name = typeof(T).Name, MyProperies = ColumnTranslation });
             }
             if (NeedToSave) {
                 Settings.SaveTranslations();
@@ -41,7 +41,7 @@ namespace EquipmentManagement {
             bool NeedToAddTable = false;
             Dictionary<string, string> ColumnTranslation;
             if (Settings.Translations.Keys.Contains(typeof(T).Name)) {
-                ColumnTranslation = Settings.Translations[typeof(T).Name];
+                ColumnTranslation = Settings.Translations[typeof(T).Name].MyProperies;
             } else {
                 ColumnTranslation = new Dictionary<string, string>();
                 NeedToAddTable = true;
@@ -57,7 +57,7 @@ namespace EquipmentManagement {
                 }
             }
             if (NeedToAddTable) {
-                Settings.Translations.Add(typeof(T).Name, ColumnTranslation);
+                Settings.Translations.Add(typeof(T).Name, new MyDictionary { Name = typeof(T).Name, MyProperies = ColumnTranslation });
             }
             if (NeedToSave) {
                 Settings.SaveTranslations();
@@ -69,7 +69,7 @@ namespace EquipmentManagement {
             bool NeedToAddTable = false;
             Dictionary<string, string> ColumnTranslation;
             if (Settings.Translations.Keys.Contains(typeof(T).Name)) {
-                ColumnTranslation = Settings.Translations[typeof(T).Name];
+                ColumnTranslation = Settings.Translations[typeof(T).Name].MyProperies;
             } else {
                 ColumnTranslation = new Dictionary<string, string>();
                 NeedToAddTable = true;
@@ -83,13 +83,27 @@ namespace EquipmentManagement {
             }
 
             if (NeedToAddTable) {
-                Settings.Translations.Add(typeof(T).Name, ColumnTranslation);
+                Settings.Translations.Add(typeof(T).Name, new MyDictionary { Name = typeof(T).Name, MyProperies = ColumnTranslation });
             }
             if (NeedToSave) {
                 Settings.SaveTranslations();
             }
             return ColumnName;
         }
+
+        public static string GetTableNameTranslation<T>() {
+            bool NeedToSave = false;
+            bool NeedToAddTable = false;
+            string TableName;
+            if (Settings.Translations.Keys.Contains(typeof(T).Name)) {
+                TableName = Settings.Translations[typeof(T).Name].Name;
+            } else {
+                TableName = typeof(T).Name + "s";
+            }
+
+            return TableName;
+        }
+
 
         public static void ChangeColunmEnumToListBox<T>(ref MyDGV MyDataGridView, string ColumnName) {
             var MyColumn = new DataGridViewComboBoxColumn();
