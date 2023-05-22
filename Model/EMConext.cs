@@ -2,10 +2,15 @@
 using EquipmentManagement.Model.Documents;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.Common;
 using System.Data.Entity;
+using System.Data.Entity.Core.EntityClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace EquipmentManagement.Model {
     public class EMContext: DbContext {
@@ -15,13 +20,17 @@ namespace EquipmentManagement.Model {
         public DbSet<Unit> Units { get; set; }
         public DbSet<InstallationLocation> InstallationLocations { get; set; }
         public DbSet<ResponsiblePerson> ResponsiblePersons { get; set; }
-        //
+
 
         public DbSet<Rrequirement> Rrequirements { get; set; }
 
 
         public EMContext() : base() {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<EMContext, Migrations.Configuration>());
+            if (Settings.CreateDB) {
+                Database.SetInitializer(new CreateDatabaseIfNotExists<EMContext>());
+            } else {
+                Database.SetInitializer(new MigrateDatabaseToLatestVersion<EMContext, Migrations.Configuration>());
+            }
         }
     }
 }

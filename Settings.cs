@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -13,6 +15,7 @@ namespace EquipmentManagement {
         //public static Dictionary<string, Dictionary<string, string>> Translations = LoadTranslations();
         public static Dictionary<string, MyDictionary> Translations = LoadTranslations();
 
+        public string SQLInstanceName { get; set; }
         public Font TableFont { get; set; }
         public Color EvenForeColor { get; set; }
         public Color EvenBackColor { get; set; }
@@ -67,6 +70,57 @@ namespace EquipmentManagement {
                 return new Dictionary<string, MyDictionary>();
             }
         }
+        private static string _DBFileName;
+        public static string DBFileName {
+            get {
+                if (String.IsNullOrEmpty(_DBFileName)) {
+                    _DBFileName = System.IO.Path.GetDirectoryName(Application.ExecutablePath) + @"\EquipmentManagement";
+                    if (CurrentSettings != null) {
+                        CurrentSettings.SaveSettings();
+                    }
+                }
+                if (!File.Exists(_DBFileName + ".mdf")) {
+                    CreateDataBase(_DBFileName);
+                }
+                return _DBFileName;
+            }
+            set {
+                _DBFileName = value;
+            }
+        }
+
+        public static bool CreateDB { get;  set; }
+
+        private static void CreateDataBase(string FileName) {
+            //SqlConnection connection = new SqlConnection(@"server=(localdb)\MSSQLLocalDB");
+            if (String.IsNullOrEmpty(Settings.CurrentSettings.SQLInstanceName)) {
+                Settings.CurrentSettings.SQLInstanceName = "MSSQLLocalDB";
+                Settings.CurrentSettings.SaveSettings();
+            }
+            SqlConnection connection = new SqlConnection(@"server=(localdb)\" + Settings.CurrentSettings.SQLInstanceName);
+            using (connection) {
+                connection.Open();
+
+                string drop = "IF DB_ID('EquipmentManagement') IS NOT NULL\n" +
+                              "\texec sp_detach_db @dbname='EquipmentManagement', @skipchecks=true; ";
+                string sql = string.Format(@"CREATE DATABASE [EquipmentManagement]
+                    ON PRIMARY (
+                       NAME=EquipmentManagement,
+                       FILENAME = '{0}.mdf'
+                    )
+                    LOG ON (
+                        NAME=EquipmentManagement_log,
+                        FILENAME = '{0}_log.ldf'
+                    )",
+                    FileName);
+
+                SqlCommand command = new SqlCommand(drop, connection);
+                command.ExecuteNonQuery();
+                command.CommandText = sql;
+                command.ExecuteNonQuery();
+            }
+        }
+
 
 
     }

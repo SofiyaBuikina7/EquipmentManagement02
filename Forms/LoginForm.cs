@@ -13,14 +13,8 @@ namespace EquipmentManagement.Forms {
     public partial class LoginForm : Form {
         public LoginForm() {
             InitializeComponent();
-            var db = new EMContext();
-            var count = db.Users.ToList().Count();
-            if (count == 0) {
-                this.DialogResult = DialogResult.OK;
-            } else {
-                UserNameCB.DataSource = db.Users.ToList();
-            }
         }
+
 
         private void OKBtn_Click(object sender, EventArgs e) {
             this.DialogResult = DialogResult.OK;
@@ -28,6 +22,16 @@ namespace EquipmentManagement.Forms {
 
         private void CancelBtn_Click(object sender, EventArgs e) {
             this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e) {
+            var db = new EMContext();
+            var count = db.Users.ToList().Count();
+            if (count == 0) {
+                this.DialogResult = DialogResult.OK;
+            } else {
+                UserNameCB.DataSource = db.Users.ToList();
+            }
         }
     }
 }

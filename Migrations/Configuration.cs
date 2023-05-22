@@ -10,7 +10,7 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "EquipmentManagement.Model.EMConext";
+            ContextKey = "EquipmentManagement";
         }
 
         protected override void Seed(EquipmentManagement.Model.EMContext context)
