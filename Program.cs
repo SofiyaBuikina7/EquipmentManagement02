@@ -17,7 +17,7 @@ namespace EquipmentManagement {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Settings.CreateDB = true;
+            Settings.CreateDB = false;
             SetConnectionString();
             
             try {
