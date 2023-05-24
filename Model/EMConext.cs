@@ -23,7 +23,7 @@ namespace EquipmentManagement.Model {
 
 
         public DbSet<Rrequirement> Rrequirements { get; set; }
-
+        public DbSet<Purchasing> Purchasings { get; set; }
 
         public EMContext() : base() {
             if (Settings.CreateDB) {

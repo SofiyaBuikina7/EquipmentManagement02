@@ -69,5 +69,9 @@ namespace EquipmentManagement {
         private void ответственныеЗаТехникуToolStripMenuItem_Click(object sender, EventArgs e) {
             OpenTableForm<ResponsiblePerson>();
         }
+
+        private void закупкаToolStripMenuItem_Click(object sender, EventArgs e) {
+            OpenTableForm<Purchasing>();
+        }
     }
 }

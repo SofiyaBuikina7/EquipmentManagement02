@@ -75,6 +75,7 @@ namespace EquipmentManagement {
             this.закупкаToolStripMenuItem.Name = "закупкаToolStripMenuItem";
             this.закупкаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.закупкаToolStripMenuItem.Text = "Закупка";
+            this.закупкаToolStripMenuItem.Click += new System.EventHandler(this.закупкаToolStripMenuItem_Click);
             // 
             // списаниеToolStripMenuItem
             // 
