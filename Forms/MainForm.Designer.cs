@@ -66,21 +66,21 @@ namespace EquipmentManagement {
             // потребностьToolStripMenuItem
             // 
             this.потребностьToolStripMenuItem.Name = "потребностьToolStripMenuItem";
-            this.потребностьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.потребностьToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.потребностьToolStripMenuItem.Text = "Потребность";
             this.потребностьToolStripMenuItem.Click += new System.EventHandler(this.потребностьToolStripMenuItem_Click);
             // 
             // закупкаToolStripMenuItem
             // 
             this.закупкаToolStripMenuItem.Name = "закупкаToolStripMenuItem";
-            this.закупкаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.закупкаToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.закупкаToolStripMenuItem.Text = "Закупка";
             this.закупкаToolStripMenuItem.Click += new System.EventHandler(this.закупкаToolStripMenuItem_Click);
             // 
             // списаниеToolStripMenuItem
             // 
             this.списаниеToolStripMenuItem.Name = "списаниеToolStripMenuItem";
-            this.списаниеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.списаниеToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.списаниеToolStripMenuItem.Text = "Списание";
             this.списаниеToolStripMenuItem.Click += new System.EventHandler(this.списаниеToolStripMenuItem_Click);
             // 
@@ -165,6 +165,7 @@ namespace EquipmentManagement {
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
             this.ResumeLayout(false);

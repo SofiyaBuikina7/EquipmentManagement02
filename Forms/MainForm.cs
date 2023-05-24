@@ -77,5 +77,35 @@ namespace EquipmentManagement {
         private void списаниеToolStripMenuItem_Click(object sender, EventArgs e) {
             OpenTableForm<WriteOff>();
         }
+
+        private void MainForm_Resize(object sender, EventArgs e) {
+            foreach (var form in this.MdiChildren) {
+                var X = form.Left;
+                var Y = form.Top;
+                var Width = form.Width;
+                var Height = form.Height;
+                if ((X + Width) > this.Width){
+                    if (X >= 0) {
+                        X = 0;
+                        if ((X + Width) > this.Width) {
+                            Width = this.Width - 40;
+                        }
+                    }
+                    form.Left = X;
+                    form.Width = Width;
+                }
+                //if ((Y + Height) > this.Height) {
+                //    if (Y >= 0) {
+                //        Y = 0;
+                //        if ((Y + Height) > this.Height) {
+                //            Height = this.Height - 120;
+                //        }
+                //    }
+                //    form.Top = Y;
+                //    form.Height = Height;
+                //}
+
+            }
+        }
     }
 }
