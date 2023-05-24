@@ -82,6 +82,7 @@ namespace EquipmentManagement {
             this.списаниеToolStripMenuItem.Name = "списаниеToolStripMenuItem";
             this.списаниеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.списаниеToolStripMenuItem.Text = "Списание";
+            this.списаниеToolStripMenuItem.Click += new System.EventHandler(this.списаниеToolStripMenuItem_Click);
             // 
             // справочникToolStripMenuItem
             // 

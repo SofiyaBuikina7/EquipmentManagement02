@@ -73,5 +73,9 @@ namespace EquipmentManagement {
         private void закупкаToolStripMenuItem_Click(object sender, EventArgs e) {
             OpenTableForm<Purchasing>();
         }
+
+        private void списаниеToolStripMenuItem_Click(object sender, EventArgs e) {
+            OpenTableForm<WriteOff>();
+        }
     }
 }

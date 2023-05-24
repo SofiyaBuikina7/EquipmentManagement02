@@ -164,6 +164,10 @@
     <Compile Include="Migrations\202305241825012_AddPurchasing.designer.cs">
       <DependentUpon>202305241825012_AddPurchasing.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305241905321_AddWriteOff.cs" />
+    <Compile Include="Migrations\202305241905321_AddWriteOff.designer.cs">
+      <DependentUpon>202305241905321_AddWriteOff.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Catalogs\Catalog.cs" />
     <Compile Include="Model\Catalogs\Category.cs" />
@@ -172,9 +176,11 @@
     <Compile Include="Model\Catalogs\Unit.cs" />
     <Compile Include="Model\Catalogs\User.cs" />
     <Compile Include="Model\Documents\DocumentRow.cs" />
-    <Compile Include="Model\Documents\Purchasing .cs" />
+    <Compile Include="Model\Documents\Purchasing.cs" />
     <Compile Include="Model\Documents\PurchasingRow.cs" />
     <Compile Include="Model\Documents\RrequirementRow.cs" />
+    <Compile Include="Model\Documents\WriteOff.cs" />
+    <Compile Include="Model\Documents\WriteOffRow.cs" />
     <Compile Include="Model\TableElement.cs" />
     <Compile Include="Model\Documents\Document.cs" />
     <Compile Include="Model\Documents\Rrequirement.cs" />
@@ -234,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305241825012_AddPurchasing.resx">
       <DependentUpon>202305241825012_AddPurchasing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305241905321_AddWriteOff.resx">
+      <DependentUpon>202305241905321_AddWriteOff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

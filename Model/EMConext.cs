@@ -24,7 +24,8 @@ namespace EquipmentManagement.Model {
 
         public DbSet<Rrequirement> Rrequirements { get; set; }
         public DbSet<Purchasing> Purchasings { get; set; }
-
+        public DbSet<WriteOff> WriteOffs { get; set; }
+        
         public EMContext() : base() {
             if (Settings.CreateDB) {
                 Database.SetInitializer(new CreateDatabaseIfNotExists<EMContext>());

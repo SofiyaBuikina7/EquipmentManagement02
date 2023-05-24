@@ -11,5 +11,6 @@ namespace EquipmentManagement.Model.Documents {
         public string No { get; set; }
         public User Author { get; set; }
         public bool Held  { get; set; }
+        public string Comment { get; set; }
     }
 }
