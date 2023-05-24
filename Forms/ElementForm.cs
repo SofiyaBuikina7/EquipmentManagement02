@@ -1,8 +1,10 @@
 ﻿using EquipmentManagement.Model;
+using EquipmentManagement.Model.Catalogs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -30,18 +32,33 @@ namespace EquipmentManagement.Forms {
             for (int i = Props.Length - 1; i >= 0; i--) {
                 var Prop = Props[i];
                 if (!Prop.Name.Equals("Id")) {
+                    Control PropTb = null;
+                    if (Props[i].PropertyType.BaseType == typeof(Catalog)) {
+                        PropTb = PatternCb.Clone();
+                        var Value = Prop.GetValue(MyElement);
+                        var result = (IQueryable<Category>) ctx.Set(Props[i].PropertyType).AsQueryable();
+                        //var query = ctx.Set(Props[i].PropertyType).OrderBy("Name").ToList(); 
+                        ((ComboBox)PropTb).DataSource = result.ToList();
+                        //((ComboBox)PropTb).ValueMember = "Id";
+                        //((ComboBox)PropTb).DisplayMember = "Name";
+
+                    } else {
+                        PropTb = PatternTb.Clone();
+                        var Text = Prop.GetValue(MyElement);
+                        if (Text != null) {
+                            PropTb.Text = Prop.GetValue(MyElement).ToString();
+                        }
+
+                    }
+
                     var PropLb = PatternLb.Clone();
-                    var PropTb = PatternTb.Clone();
+                    
                     PropTb.Name = Prop.Name + "Tb";
                     PropLb.Top = Y;
                     PropTb.Top = Y;
 
                     PropLb.Text = Utils.GetColumnTranslation<TypeEntity>(Prop.Name);
 
-                    var Text = Prop.GetValue(MyElement);
-                    if (Text != null) {
-                        PropTb.Text = Prop.GetValue(MyElement).ToString();
-                    }
                     Y += PatternTb.Height + offset;
                     PropLb.Visible = true;
                     PropTb.Visible = true;

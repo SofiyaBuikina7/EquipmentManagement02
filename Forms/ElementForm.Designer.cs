@@ -28,6 +28,7 @@ namespace EquipmentManagement.Forms {
             this.PatternLb = new System.Windows.Forms.Label();
             this.SaveBtn = new System.Windows.Forms.Button();
             this.SaveAndExit = new System.Windows.Forms.Button();
+            this.PatternCb = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // PatternTb
@@ -66,11 +67,20 @@ namespace EquipmentManagement.Forms {
             this.SaveAndExit.UseVisualStyleBackColor = true;
             this.SaveAndExit.Click += new System.EventHandler(this.SaveAndExit_Click);
             // 
+            // PatternCb
+            // 
+            this.PatternCb.FormattingEnabled = true;
+            this.PatternCb.Location = new System.Drawing.Point(165, 38);
+            this.PatternCb.Name = "PatternCb";
+            this.PatternCb.Size = new System.Drawing.Size(202, 21);
+            this.PatternCb.TabIndex = 4;
+            // 
             // ElementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(369, 450);
+            this.Controls.Add(this.PatternCb);
             this.Controls.Add(this.SaveAndExit);
             this.Controls.Add(this.SaveBtn);
             this.Controls.Add(this.PatternLb);
@@ -88,5 +98,6 @@ namespace EquipmentManagement.Forms {
         private System.Windows.Forms.Label PatternLb;
         private System.Windows.Forms.Button SaveBtn;
         private System.Windows.Forms.Button SaveAndExit;
+        private System.Windows.Forms.ComboBox PatternCb;
     }
 }

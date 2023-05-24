@@ -152,6 +152,10 @@
     <Compile Include="Migrations\202305072105202_ResponsiblePerson_Table.designer.cs">
       <DependentUpon>202305072105202_ResponsiblePerson_Table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305241754406_AddStateOfDocsAndCatalogs.cs" />
+    <Compile Include="Migrations\202305241754406_AddStateOfDocsAndCatalogs.designer.cs">
+      <DependentUpon>202305241754406_AddStateOfDocsAndCatalogs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Catalogs\Catalog.cs" />
     <Compile Include="Model\Catalogs\Category.cs" />
@@ -209,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305072105202_ResponsiblePerson_Table.resx">
       <DependentUpon>202305072105202_ResponsiblePerson_Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305241754406_AddStateOfDocsAndCatalogs.resx">
+      <DependentUpon>202305241754406_AddStateOfDocsAndCatalogs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

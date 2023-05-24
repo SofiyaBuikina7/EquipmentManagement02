@@ -10,5 +10,6 @@ namespace EquipmentManagement.Model.Documents {
         public DateTime Date { get; set; }
         public string No { get; set; }
         public User Author { get; set; }
+        public bool Held  { get; set; }
     }
 }
