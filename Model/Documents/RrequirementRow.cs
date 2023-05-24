@@ -6,8 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace EquipmentManagement.Model.Documents {
-    public class Rrequirement:Document {
-        public Unit Unit { get; set; }
-        public List<RrequirementRow> RrequirementRows { get; set; }
+    public class RrequirementRow:DocumentRow {
+        public Equipment Equipment { get; set; }
+        public int Quantity { get; set; }
     }
 }

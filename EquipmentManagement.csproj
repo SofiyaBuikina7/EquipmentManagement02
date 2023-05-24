@@ -156,6 +156,10 @@
     <Compile Include="Migrations\202305241754406_AddStateOfDocsAndCatalogs.designer.cs">
       <DependentUpon>202305241754406_AddStateOfDocsAndCatalogs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305241807198_AddRrequirementRows.cs" />
+    <Compile Include="Migrations\202305241807198_AddRrequirementRows.designer.cs">
+      <DependentUpon>202305241807198_AddRrequirementRows.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Catalogs\Catalog.cs" />
     <Compile Include="Model\Catalogs\Category.cs" />
@@ -163,6 +167,8 @@
     <Compile Include="Model\Catalogs\ResponsiblePerson.cs" />
     <Compile Include="Model\Catalogs\Unit.cs" />
     <Compile Include="Model\Catalogs\User.cs" />
+    <Compile Include="Model\Documents\DocumentRow.cs" />
+    <Compile Include="Model\Documents\RrequirementRow.cs" />
     <Compile Include="Model\TableElement.cs" />
     <Compile Include="Model\Documents\Document.cs" />
     <Compile Include="Model\Documents\Rrequirement.cs" />
@@ -216,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305241754406_AddStateOfDocsAndCatalogs.resx">
       <DependentUpon>202305241754406_AddStateOfDocsAndCatalogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305241807198_AddRrequirementRows.resx">
+      <DependentUpon>202305241807198_AddRrequirementRows.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
