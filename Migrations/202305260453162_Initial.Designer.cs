@@ -7,13 +7,13 @@ namespace EquipmentManagement.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class UserPassword : IMigrationMetadata
+    public sealed partial class Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UserPassword));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "202304221003146_UserPassword"; }
+            get { return "202305260453162_Initial"; }
         }
         
         string IMigrationMetadata.Source

@@ -124,49 +124,9 @@
     <Compile Include="Forms\MyDGV.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Migrations\202303081510210_InitialCreate.cs" />
-    <Compile Include="Migrations\202303081510210_InitialCreate.designer.cs">
-      <DependentUpon>202303081510210_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303081544562_AddEqipment.cs" />
-    <Compile Include="Migrations\202303081544562_AddEqipment.designer.cs">
-      <DependentUpon>202303081544562_AddEqipment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303191511592_Add_User_Rrequirement.cs" />
-    <Compile Include="Migrations\202303191511592_Add_User_Rrequirement.designer.cs">
-      <DependentUpon>202303191511592_Add_User_Rrequirement.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304221003146_UserPassword.cs" />
-    <Compile Include="Migrations\202304221003146_UserPassword.designer.cs">
-      <DependentUpon>202304221003146_UserPassword.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305072046027_Units_Table.cs" />
-    <Compile Include="Migrations\202305072046027_Units_Table.designer.cs">
-      <DependentUpon>202305072046027_Units_Table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305072050387_InstallationLocations.cs" />
-    <Compile Include="Migrations\202305072050387_InstallationLocations.designer.cs">
-      <DependentUpon>202305072050387_InstallationLocations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305072105202_ResponsiblePerson_Table.cs" />
-    <Compile Include="Migrations\202305072105202_ResponsiblePerson_Table.designer.cs">
-      <DependentUpon>202305072105202_ResponsiblePerson_Table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305241754406_AddStateOfDocsAndCatalogs.cs" />
-    <Compile Include="Migrations\202305241754406_AddStateOfDocsAndCatalogs.designer.cs">
-      <DependentUpon>202305241754406_AddStateOfDocsAndCatalogs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305241807198_AddRrequirementRows.cs" />
-    <Compile Include="Migrations\202305241807198_AddRrequirementRows.designer.cs">
-      <DependentUpon>202305241807198_AddRrequirementRows.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305241825012_AddPurchasing.cs" />
-    <Compile Include="Migrations\202305241825012_AddPurchasing.designer.cs">
-      <DependentUpon>202305241825012_AddPurchasing.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305241905321_AddWriteOff.cs" />
-    <Compile Include="Migrations\202305241905321_AddWriteOff.designer.cs">
-      <DependentUpon>202305241905321_AddWriteOff.cs</DependentUpon>
+    <Compile Include="Migrations\202305260453162_Initial.cs" />
+    <Compile Include="Migrations\202305260453162_Initial.designer.cs">
+      <DependentUpon>202305260453162_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Catalogs\Catalog.cs" />
@@ -208,41 +168,11 @@
     <EmbeddedResource Include="Forms\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303081510210_InitialCreate.resx">
-      <DependentUpon>202303081510210_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303081544562_AddEqipment.resx">
-      <DependentUpon>202303081544562_AddEqipment.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ElementsTableForm.resx">
       <DependentUpon>ElementsTableForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303191511592_Add_User_Rrequirement.resx">
-      <DependentUpon>202303191511592_Add_User_Rrequirement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304221003146_UserPassword.resx">
-      <DependentUpon>202304221003146_UserPassword.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305072046027_Units_Table.resx">
-      <DependentUpon>202305072046027_Units_Table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305072050387_InstallationLocations.resx">
-      <DependentUpon>202305072050387_InstallationLocations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305072105202_ResponsiblePerson_Table.resx">
-      <DependentUpon>202305072105202_ResponsiblePerson_Table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305241754406_AddStateOfDocsAndCatalogs.resx">
-      <DependentUpon>202305241754406_AddStateOfDocsAndCatalogs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305241807198_AddRrequirementRows.resx">
-      <DependentUpon>202305241807198_AddRrequirementRows.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305241825012_AddPurchasing.resx">
-      <DependentUpon>202305241825012_AddPurchasing.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305241905321_AddWriteOff.resx">
-      <DependentUpon>202305241905321_AddWriteOff.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202305260453162_Initial.resx">
+      <DependentUpon>202305260453162_Initial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

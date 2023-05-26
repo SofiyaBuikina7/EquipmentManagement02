@@ -35,7 +35,7 @@ namespace EquipmentManagement {
 
         private void оборудываниеToolStripMenuItem_Click(object sender, EventArgs e) {
             
-            OpenTableForm< Equipment>();
+            OpenTableForm<Equipment>();
         }
 
         private void подразделенияToolStripMenuItem_Click(object sender, EventArgs e) {
