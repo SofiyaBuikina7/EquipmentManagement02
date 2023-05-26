@@ -14,10 +14,16 @@ namespace EquipmentManagement {
         /// Главная точка входа для приложения.
         /// </summary>
         [STAThread]
-        static void Main() {
+        static void Main(string[] args) {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Settings.CreateDB = false;
+            Settings.CreateDB = true;
+            foreach (var arg in args) {
+                if (arg.ToLower().Contains("-migrate")){
+                    Settings.CreateDB = false;
+                }
+            }
+            
             SetConnectionString();
             
             try {
