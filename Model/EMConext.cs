@@ -1,5 +1,6 @@
 ﻿using EquipmentManagement.Model.Catalogs;
 using EquipmentManagement.Model.Documents;
+using EquipmentManagement.Model.Registry;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -25,7 +26,8 @@ namespace EquipmentManagement.Model {
         public DbSet<Rrequirement> Rrequirements { get; set; }
         public DbSet<Purchasing> Purchasings { get; set; }
         public DbSet<WriteOff> WriteOffs { get; set; }
-        
+        public DbSet<EquipmentMovement> EquipmentMovements { get; set; }
+
         public EMContext() : base() {
             if (Settings.CreateDB) {
                 Database.SetInitializer(new CreateDatabaseIfNotExists<EMContext>());
