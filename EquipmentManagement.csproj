@@ -132,6 +132,10 @@
     <Compile Include="Migrations\202305260524087_AddEquipmentMovementRegistry.designer.cs">
       <DependentUpon>202305260524087_AddEquipmentMovementRegistry.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305301852271_WriteOffRows.cs" />
+    <Compile Include="Migrations\202305301852271_WriteOffRows.designer.cs">
+      <DependentUpon>202305301852271_WriteOffRows.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Catalogs\Catalog.cs" />
     <Compile Include="Model\Catalogs\Category.cs" />
@@ -147,6 +151,7 @@
     <Compile Include="Model\Documents\WriteOffRow.cs" />
     <Compile Include="Model\Registry\EquipmentMovement.cs" />
     <Compile Include="Model\Registry\Registry.cs" />
+    <Compile Include="Model\Registry\EquipmentMover.cs" />
     <Compile Include="Model\TableElement.cs" />
     <Compile Include="Model\Documents\Document.cs" />
     <Compile Include="Model\Documents\Rrequirement.cs" />
@@ -182,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305260524087_AddEquipmentMovementRegistry.resx">
       <DependentUpon>202305260524087_AddEquipmentMovementRegistry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305301852271_WriteOffRows.resx">
+      <DependentUpon>202305301852271_WriteOffRows.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
