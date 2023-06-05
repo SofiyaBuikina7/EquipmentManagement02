@@ -74,6 +74,7 @@ namespace EquipmentManagement.Forms {
             this.PatternCb.Name = "PatternCb";
             this.PatternCb.Size = new System.Drawing.Size(202, 21);
             this.PatternCb.TabIndex = 4;
+            this.PatternCb.Visible = false;
             // 
             // ElementForm
             // 

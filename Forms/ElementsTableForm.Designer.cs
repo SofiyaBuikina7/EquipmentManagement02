@@ -30,26 +30,31 @@ namespace EquipmentManagement
         /// </summary>
         private void InitializeComponent()
         {
-            this.MainListDGV = new MyDGV();
+            this.MainListDGV = new EquipmentManagement.Forms.MyDGV();
             ((System.ComponentModel.ISupportInitialize)(this.MainListDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // MainListDGV
             // 
+            this.MainListDGV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.MainListDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MainListDGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainListDGV.Location = new System.Drawing.Point(0, 0);
+            this.MainListDGV.Location = new System.Drawing.Point(0, 35);
+            this.MainListDGV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MainListDGV.Name = "MainListDGV";
-            this.MainListDGV.Size = new System.Drawing.Size(800, 450);
+            this.MainListDGV.RowHeadersWidth = 51;
+            this.MainListDGV.Size = new System.Drawing.Size(1067, 519);
             this.MainListDGV.TabIndex = 0;
             this.MainListDGV.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainListDGV_KeyDown);
             // 
             // ElementsTableForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.MainListDGV);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ElementsTableForm";
             this.Text = "Need";
             ((System.ComponentModel.ISupportInitialize)(this.MainListDGV)).EndInit();

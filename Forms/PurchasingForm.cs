@@ -1,6 +1,5 @@
 ﻿using EquipmentManagement.Forms;
 using EquipmentManagement.Model;
-using EquipmentManagement.Model.Documents;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,23 +8,24 @@ using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
+
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EquipmentManagement
 {
-    public partial class ElementsTableForm<TypeEntity>: Form where TypeEntity : TableElement, new() {
-        public ElementsTableForm(){
-            InitializeComponent();
-            this.Text = Utils.GetTableNameTranslation<TypeEntity>();
+    public partial class PurchasingForm<DocTypeEntry> : DocumentForm<DocTypeEntry> where DocTypeEntry : TableElement, new() {
+        public PurchasingForm(){
+            base.InitializeComponent();
+            this.Text = Utils.GetTableNameTranslation<DocTypeEntry>();
             LoadTable();
             //MainListDGV.DataSource = list;
         }
 
         void LoadTable() {
             var ctx = new EMContext();
-            var query = ctx.Set<TypeEntity>().AsQueryable();
+            var query = ctx.Set<DocTypeEntry>().AsQueryable();
             var MyList = query.ToList();
             MainListDGV.DataSource = MyList;
             PrepareDGV(ref MainListDGV, MyList);
@@ -35,30 +35,23 @@ namespace EquipmentManagement
         }
 
         private void MainListDGV_KeyDown(object sender, KeyEventArgs e) {
-            if (e.KeyCode == Keys.Insert) {
-                if (typeof(TypeEntity).IsSubclassOf(typeof(Document))) {
-                    var NewElementForm = new DocumentForm<TypeEntity>();
-                    NewElementForm.MdiParent = this.MdiParent;
-                    NewElementForm.FormClosed += new FormClosedEventHandler(OnChildFormClosed);
-                    NewElementForm.Show();
-                } else {
-                    var NewElementForm = new ElementForm<TypeEntity>();
-                    NewElementForm.MdiParent = this.MdiParent;
-                    NewElementForm.FormClosed += new FormClosedEventHandler(OnChildFormClosed);
-                    NewElementForm.Show();
-                }
-            }
-            if (e.KeyCode == Keys.Enter) {
-                if (MainListDGV.SelectedCells != null && MainListDGV.SelectedCells.Count > 0) {
-                    var MyCell = MainListDGV.SelectedCells[0];
-                    int Id = (int)MainListDGV.Rows[MyCell.RowIndex].Cells["Id"].Value;
+            //if (e.KeyCode == Keys.Insert) {
+            //    var NewElementForm = new ElementForm<TypeEntity>();
+            //    NewElementForm.MdiParent = this.MdiParent;
+            //    NewElementForm.FormClosed += new FormClosedEventHandler(OnChildFormClosed);
+            //    NewElementForm.Show();
+            //}
+            //if (e.KeyCode == Keys.Enter) {
+            //    if (MainListDGV.SelectedCells != null && MainListDGV.SelectedCells.Count > 0) {
+            //        var MyCell = MainListDGV.SelectedCells[0];
+            //        int Id = (int)MainListDGV.Rows[MyCell.RowIndex].Cells["Id"].Value;
 
-                    var NewElementForm = new ElementForm<TypeEntity>(Id);
-                    NewElementForm.MdiParent = this.MdiParent;
-                    NewElementForm.FormClosed += new FormClosedEventHandler(OnChildFormClosed);
-                    NewElementForm.Show();
-                }
-            }
+            //        var NewElementForm = new ElementForm<TypeEntity>(Id);
+            //        NewElementForm.MdiParent = this.MdiParent;
+            //        NewElementForm.FormClosed += new FormClosedEventHandler(OnChildFormClosed);
+            //        NewElementForm.Show();
+            //    }
+            //}
         }
 
         void OnChildFormClosed(object sender, FormClosedEventArgs e) {

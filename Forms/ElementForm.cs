@@ -33,23 +33,30 @@ namespace EquipmentManagement.Forms {
                 var Prop = Props[i];
                 if (!Prop.Name.Equals("Id")) {
                     Control PropTb = null;
-                    if (Props[i].PropertyType.BaseType == typeof(Catalog)) {
-                        PropTb = PatternCb.Clone();
-                        var Value = Prop.GetValue(MyElement);
-                        var result = (IQueryable<Category>) ctx.Set(Props[i].PropertyType).AsQueryable();
-                        //var query = ctx.Set(Props[i].PropertyType).OrderBy("Name").ToList(); 
-                        ((ComboBox)PropTb).DataSource = result.ToList();
-                        //((ComboBox)PropTb).ValueMember = "Id";
-                        //((ComboBox)PropTb).DisplayMember = "Name";
+                    //if (Props[i].PropertyType.BaseType == typeof(Catalog)) {
+                    //    PropTb = PatternCb.Clone();
+                    //    var Value = Prop.GetValue(MyElement);
+                    //    //var result = (IQueryable<Category>) ctx.Set(Props[i].PropertyType).AsQueryable();
+                    //    //var query = ctx.Set(Props[i].PropertyType).OrderBy("Name").ToList(); 
+                    //    //((ComboBox)PropTb).DataSource = result.ToList();
+                    //    //((ComboBox)PropTb).ValueMember = "Id";
+                    //    //((ComboBox)PropTb).DisplayMember = "Name";
 
-                    } else {
-                        PropTb = PatternTb.Clone();
-                        var Text = Prop.GetValue(MyElement);
-                        if (Text != null) {
-                            PropTb.Text = Prop.GetValue(MyElement).ToString();
-                        }
+                    //} else {
+                    //    PropTb = PatternTb.Clone();
+                    //    var Text = Prop.GetValue(MyElement);
+                    //    if (Text != null) {
+                    //        PropTb.Text = Prop.GetValue(MyElement).ToString();
+                    //    }
 
+                    //}
+
+                    PropTb = PatternTb.Clone();
+                    var Text = Prop.GetValue(MyElement);
+                    if (Text != null) {
+                        PropTb.Text = Prop.GetValue(MyElement).ToString();
                     }
+
 
                     var PropLb = PatternLb.Clone();
                     
@@ -78,11 +85,15 @@ namespace EquipmentManagement.Forms {
             var Props = MyElement.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
             for (int i = Props.Length - 1; i >= 0; i--) {
                 var Prop = Props[i];
-                if (!Prop.Name.Equals("Id")) {
-                    Prop.SetValue(MyElement, Controls[Prop.Name + "Tb"].Text);
+                if (Prop.PropertyType == typeof(Boolean)) {
+                    Prop.SetValue(MyElement, Convert.ToBoolean(Controls[Prop.Name + "Tb"].Text));
+                } else {
+                    if (!Prop.Name.Equals("Id")) {
+                        Prop.SetValue(MyElement, Controls[Prop.Name + "Tb"].Text);
+                    }
                 }
             }
-                
+
             if (MyElement.Id == 0) {
                 ctx.Set<TypeEntity>().Add((TypeEntity)MyElement);
             }
