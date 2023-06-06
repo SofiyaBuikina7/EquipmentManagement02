@@ -107,5 +107,11 @@ namespace EquipmentManagement {
 
             }
         }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e) {
+            if (MessageBox.Show(this, "Вы уверенны что хотите выйти?", "Вы уверенны что хотите выйти?", MessageBoxButtons.YesNo) != DialogResult.Yes) {
+                e.Cancel = true;
+            }
+        }
     }
 }

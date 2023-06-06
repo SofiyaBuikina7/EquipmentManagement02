@@ -40,7 +40,11 @@ namespace EquipmentManagement.Forms {
             var db = new EMContext();
             var count = db.Users.ToList().Count();
             if (count == 0) {
-                this.DialogResult = DialogResult.OK;
+                //this.DialogResult = DialogResult.OK;
+                var NewForm = new UserForm();
+                if (NewForm.ShowDialog() == DialogResult.OK) {
+                    UserNameCB.DataSource = db.Users.ToList();
+                }
             } else {
                 UserNameCB.DataSource = db.Users.ToList();
             }
