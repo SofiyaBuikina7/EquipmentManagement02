@@ -15,7 +15,7 @@ using System.Windows.Forms;
 namespace EquipmentManagement
 {
     public partial class DocumentForm<TypeEntity>: Form where TypeEntity : TableElement, new() {
-        public DocumentForm(){
+        public DocumentForm(int ElementID = -1) {
             InitializeComponent();
             this.Text = Utils.GetTableNameTranslation<TypeEntity>();
             LoadTable();

@@ -1,5 +1,6 @@
 ﻿using EquipmentManagement.Forms;
 using EquipmentManagement.Model;
+using EquipmentManagement.Model.Catalogs;
 using EquipmentManagement.Model.Documents;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,17 +26,14 @@ namespace EquipmentManagement {
         }
 
         private void MainListDGV_KeyDown(object sender, KeyEventArgs e) {
+            Form NewForm = null;
             if (e.KeyCode == Keys.Insert) {
                 if (typeof(TypeEntity).IsSubclassOf(typeof(Document))) {
-                    var NewElementForm = new DocumentForm<TypeEntity>();
-                    NewElementForm.MdiParent = this.MdiParent;
-                    NewElementForm.FormClosed += new FormClosedEventHandler(OnChildFormClosed);
-                    NewElementForm.Show();
+                    NewForm = new DocumentForm<TypeEntity>();
+                } else if (typeof(TypeEntity) == typeof(User)) {
+                    NewForm = new UserForm();
                 } else {
-                    var NewElementForm = new ElementForm<TypeEntity>();
-                    NewElementForm.MdiParent = this.MdiParent;
-                    NewElementForm.FormClosed += new FormClosedEventHandler(OnChildFormClosed);
-                    NewElementForm.Show();
+                    NewForm = new ElementForm<TypeEntity>();
                 }
             }
             if (e.KeyCode == Keys.Enter) {
@@ -43,12 +41,19 @@ namespace EquipmentManagement {
                     var MyCell = MainListDGV.SelectedCells[0];
                     int Id = (int)MainListDGV.Rows[MyCell.RowIndex].Cells["Id"].Value;
 
-                    var NewElementForm = new ElementForm<TypeEntity>(Id);
-                    NewElementForm.MdiParent = this.MdiParent;
-                    NewElementForm.FormClosed += new FormClosedEventHandler(OnChildFormClosed);
-                    NewElementForm.Show();
+                    if (typeof(TypeEntity).IsSubclassOf(typeof(Document))) {
+                        NewForm = new DocumentForm<TypeEntity>(Id);
+                    } else if (typeof(TypeEntity) == typeof(User)) {
+                        NewForm = new UserForm(Id);
+                    } else {
+                        NewForm = new ElementForm<TypeEntity>(Id);
+                    }
                 }
             }
+            NewForm.MdiParent = this.MdiParent;
+            NewForm.FormClosed += new FormClosedEventHandler(OnChildFormClosed);
+            NewForm.Show();
+
         }
 
         void OnChildFormClosed(object sender, FormClosedEventArgs e) {
@@ -70,6 +75,9 @@ namespace EquipmentManagement {
             }
             if (MyDataGridView.Columns.Contains("Held")) {
                 MyDataGridView.Columns["Held"].Visible = false;
+            }
+            if (MyDataGridView.Columns.Contains("PasswordMD5")) {
+                MyDataGridView.Columns["PasswordMD5"].Visible = false;
             }
 
             Utils.TranslateColumnHeaders<T>(ref MyDataGridView);

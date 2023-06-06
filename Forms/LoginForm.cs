@@ -1,4 +1,5 @@
 ﻿using EquipmentManagement.Model;
+using EquipmentManagement.Model.Catalogs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,9 +16,20 @@ namespace EquipmentManagement.Forms {
             InitializeComponent();
         }
 
-
         private void OKBtn_Click(object sender, EventArgs e) {
-            this.DialogResult = DialogResult.OK;
+            if (CheckPassword()) {
+                this.DialogResult = DialogResult.OK;
+            }
+        }
+
+        public Boolean CheckPassword() {
+            User SelectedUser = (User)UserNameCB.SelectedItem;
+            if (Utils.CreateMD5(PasswordTB.Text) == SelectedUser.PasswordMD5) {
+                return true;
+            } else {
+                MessageBox.Show("Пароль не верен!");
+                return false;
+            }
         }
 
         private void CancelBtn_Click(object sender, EventArgs e) {
@@ -31,6 +43,14 @@ namespace EquipmentManagement.Forms {
                 this.DialogResult = DialogResult.OK;
             } else {
                 UserNameCB.DataSource = db.Users.ToList();
+            }
+        }
+
+        private void PasswordTB_KeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.Enter) {
+                if (CheckPassword()) {
+                    this.DialogResult = DialogResult.OK;
+                }
             }
         }
     }
