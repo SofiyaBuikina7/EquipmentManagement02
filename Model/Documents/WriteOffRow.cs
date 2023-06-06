@@ -9,7 +9,7 @@ namespace EquipmentManagement.Model.Documents {
     public class WriteOffRow:DocumentRow {
         public Equipment Equipment { get; set; }
         public int Quantity { get; set; }
-        public Unit FromUnit { get; set; }
+        public InstallationLocation InstallationLocation { get; set; }
         public ResponsiblePerson FromResponsiblePerson { get; set; }
     }
 }

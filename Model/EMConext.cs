@@ -1,17 +1,8 @@
 ﻿using EquipmentManagement.Model.Catalogs;
 using EquipmentManagement.Model.Documents;
 using EquipmentManagement.Model.Registry;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data.Common;
 using System.Data.Entity;
-using System.Data.Entity.Core.EntityClient;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 namespace EquipmentManagement.Model {
     public class EMContext: DbContext {

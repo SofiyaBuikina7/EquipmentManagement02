@@ -14,9 +14,11 @@ using System.Windows.Forms;
 
 namespace EquipmentManagement.Forms {
     public partial class ElementForm<TypeEntity> : Form where TypeEntity :TableElement, new(){
-        EMContext ctx = new EMContext();
         TableElement MyElement;
+        EMContext ctx = new EMContext();
         public ElementForm(int ElementID = -1) {
+            
+
             InitializeComponent();
             this.Text = Utils.GetTableNameTranslation<TypeEntity>(); 
             

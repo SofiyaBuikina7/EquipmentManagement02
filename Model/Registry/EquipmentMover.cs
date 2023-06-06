@@ -16,7 +16,7 @@ namespace EquipmentManagement.Model.Registry {
                 registry.RegistratorType = document.GetType().Name;
                 registry.Direction = 1;
                 registry.Equipment = Row.Equipment;
-                registry.Unit = Row.ForUnit;
+                registry.InstallationLocation = Row.InstallationLocation;
                 registry.Person = Row.ForResponsiblePerson;
                 registry.Quantity = Row.Quantity; 
                 ctx.Set<EquipmentMovement>().Add(registry);
@@ -33,7 +33,7 @@ namespace EquipmentManagement.Model.Registry {
                 registry.RegistratorType = document.GetType().Name;
                 registry.Direction = -1;
                 registry.Equipment = Row.Equipment;
-                registry.Unit = Row.FromUnit;
+                registry.InstallationLocation = Row.InstallationLocation;
                 registry.Person = Row.FromResponsiblePerson;
                 registry.Quantity = Row.Quantity;
                 ctx.Set<EquipmentMovement>().Add(registry);

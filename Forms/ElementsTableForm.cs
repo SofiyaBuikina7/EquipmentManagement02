@@ -1,26 +1,16 @@
 ﻿using EquipmentManagement.Forms;
 using EquipmentManagement.Model;
 using EquipmentManagement.Model.Documents;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.Entity;
-using System.Drawing;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EquipmentManagement
-{
-    public partial class ElementsTableForm<TypeEntity>: Form where TypeEntity : TableElement, new() {
-        public ElementsTableForm(){
+namespace EquipmentManagement {
+    public partial class ElementsTableForm<TypeEntity> : Form where TypeEntity : TableElement, new() {
+        public ElementsTableForm() {
             InitializeComponent();
             this.Text = Utils.GetTableNameTranslation<TypeEntity>();
             LoadTable();
-            //MainListDGV.DataSource = list;
         }
 
         void LoadTable() {
@@ -81,7 +71,7 @@ namespace EquipmentManagement
             if (MyDataGridView.Columns.Contains("Held")) {
                 MyDataGridView.Columns["Held"].Visible = false;
             }
-                
+
             Utils.TranslateColumnHeaders<T>(ref MyDataGridView);
         }
 
@@ -101,7 +91,7 @@ namespace EquipmentManagement
                             }
                         } else {
                             e.Value = Properties.Resources.Doc;
-                        } 
+                        }
                     }
                 }
             }

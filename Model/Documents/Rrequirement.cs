@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace EquipmentManagement.Model.Documents {
     public class Rrequirement:Document {
         public string Reason { get; set; }
-        public Unit Unit { get; set; }
+        public InstallationLocation InstallationLocation { get; set; }
         public List<RrequirementRow> RrequirementRows { get; set; }
     }
 }

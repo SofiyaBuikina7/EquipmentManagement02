@@ -10,7 +10,7 @@ namespace EquipmentManagement.Model.Documents {
     public class PurchasingRow:DocumentRow {
         public Equipment Equipment { get; set; }
         public int Quantity { get; set; }
-        public Unit ForUnit { get; set; }
+        public InstallationLocation InstallationLocation { get; set; }
         public ResponsiblePerson ForResponsiblePerson { get; set; }
         [Column(TypeName = "money")]
         public decimal Price { get; set; }

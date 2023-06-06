@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace EquipmentManagement.Model.Registry {
     public class EquipmentMovement:Registry {
         public Equipment Equipment { get; set; }
-        public Unit Unit { get; set; }
+        public InstallationLocation InstallationLocation { get; set; }
         public ResponsiblePerson Person { get; set; }
 
         public int Quantity { get; set; }

@@ -148,6 +148,14 @@
     <Compile Include="Migrations\202305301852271_WriteOffRows.designer.cs">
       <DependentUpon>202305301852271_WriteOffRows.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202306051855582_InstalationLocationTable_Connect.cs" />
+    <Compile Include="Migrations\202306051855582_InstalationLocationTable_Connect.designer.cs">
+      <DependentUpon>202306051855582_InstalationLocationTable_Connect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202306051901398_InstalationLocationTable_BugFix.cs" />
+    <Compile Include="Migrations\202306051901398_InstalationLocationTable_BugFix.designer.cs">
+      <DependentUpon>202306051901398_InstalationLocationTable_BugFix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Catalogs\Catalog.cs" />
     <Compile Include="Model\Catalogs\Category.cs" />
@@ -208,6 +216,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305301852271_WriteOffRows.resx">
       <DependentUpon>202305301852271_WriteOffRows.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202306051855582_InstalationLocationTable_Connect.resx">
+      <DependentUpon>202306051855582_InstalationLocationTable_Connect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202306051901398_InstalationLocationTable_BugFix.resx">
+      <DependentUpon>202306051901398_InstalationLocationTable_BugFix.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
