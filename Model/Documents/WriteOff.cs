@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 namespace EquipmentManagement.Model.Documents {
     public class WriteOff:Document {
         public string Reason { get; set; }
-        public List<WriteOffRow> WriteOffRows { get; set; }
+        public List<WriteOffRow> Rows { get; set; }
     }
 }

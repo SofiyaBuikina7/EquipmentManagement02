@@ -162,6 +162,10 @@
     <Compile Include="Migrations\202306051901398_InstalationLocationTable_BugFix.designer.cs">
       <DependentUpon>202306051901398_InstalationLocationTable_BugFix.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202306070116211_AddDocumetMovement.cs" />
+    <Compile Include="Migrations\202306070116211_AddDocumetMovement.designer.cs">
+      <DependentUpon>202306070116211_AddDocumetMovement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Catalogs\Catalog.cs" />
     <Compile Include="Model\Catalogs\Category.cs" />
@@ -170,10 +174,12 @@
     <Compile Include="Model\Catalogs\Unit.cs" />
     <Compile Include="Model\Catalogs\User.cs" />
     <Compile Include="Model\Documents\DocumentRow.cs" />
+    <Compile Include="Model\Documents\Movement.cs" />
     <Compile Include="Model\Documents\Purchasing.cs" />
     <Compile Include="Model\Documents\PurchasingRow.cs" />
     <Compile Include="Model\Documents\RrequirementRow.cs" />
     <Compile Include="Model\Documents\WriteOff.cs" />
+    <Compile Include="Model\Documents\MovementRow.cs" />
     <Compile Include="Model\Documents\WriteOffRow.cs" />
     <Compile Include="Model\Registry\EquipmentMovement.cs" />
     <Compile Include="Model\Registry\Registry.cs" />
@@ -231,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202306051901398_InstalationLocationTable_BugFix.resx">
       <DependentUpon>202306051901398_InstalationLocationTable_BugFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202306070116211_AddDocumetMovement.resx">
+      <DependentUpon>202306070116211_AddDocumetMovement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

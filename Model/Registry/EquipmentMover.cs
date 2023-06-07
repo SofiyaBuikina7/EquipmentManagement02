@@ -9,8 +9,8 @@ namespace EquipmentManagement.Model.Registry {
     public class EquipmentMover {
         public void CreateMovement(Purchasing document) {
             EMContext ctx = new EMContext();
-            List<PurchasingRow> purchasingRows = ctx.Set<Purchasing>().Where(t => t.Id == document.Id).FirstOrDefault().PurchasingRows.ToList();
-            foreach (var Row in purchasingRows) {
+            List<PurchasingRow> Rows = ctx.Set<Purchasing>().Where(t => t.Id == document.Id).FirstOrDefault().Rows.ToList();
+            foreach (var Row in Rows) {
                 EquipmentMovement registry = new EquipmentMovement();
                 registry.RegistratorId = document.Id;
                 registry.RegistratorType = document.GetType().Name;
@@ -26,8 +26,8 @@ namespace EquipmentManagement.Model.Registry {
 
         public void CreateMovement(WriteOff document) {
             EMContext ctx = new EMContext();
-            List<WriteOffRow> purchasingRows = ctx.Set<WriteOff>().Where(t => t.Id == document.Id).FirstOrDefault().WriteOffRows.ToList();
-            foreach (var Row in purchasingRows) {
+            List<WriteOffRow> Rows = ctx.Set<WriteOff>().Where(t => t.Id == document.Id).FirstOrDefault().Rows.ToList();
+            foreach (var Row in Rows) {
                 EquipmentMovement registry = new EquipmentMovement();
                 registry.RegistratorId = document.Id;
                 registry.RegistratorType = document.GetType().Name;
