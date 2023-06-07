@@ -39,15 +39,14 @@ namespace EquipmentManagement.Forms {
         private void LoginForm_Load(object sender, EventArgs e) {
             var db = new EMContext();
             var count = db.Users.ToList().Count();
-            if (count == 0) {
-                //this.DialogResult = DialogResult.OK;
+            while (count == 0) {
+                MessageBox.Show("Не обнаружено ни одного пользователя.\nДля работы в программе неодходимо создать пользователя!");
                 var NewForm = new UserForm();
-                if (NewForm.ShowDialog() == DialogResult.OK) {
-                    UserNameCB.DataSource = db.Users.ToList();
-                }
-            } else {
-                UserNameCB.DataSource = db.Users.ToList();
+                NewForm.ShowDialog();
+                NewForm.Dispose();
+                count = db.Users.ToList().Count();
             }
+            UserNameCB.DataSource = db.Users.ToList();
         }
 
         private void PasswordTB_KeyDown(object sender, KeyEventArgs e) {
