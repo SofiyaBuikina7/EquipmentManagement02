@@ -146,6 +146,10 @@
     <Compile Include="Migrations\202306070124331_Initial.designer.cs">
       <DependentUpon>202306070124331_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202306070213150_EquipmentRrequirement.cs" />
+    <Compile Include="Migrations\202306070213150_EquipmentRrequirement.designer.cs">
+      <DependentUpon>202306070213150_EquipmentRrequirement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Catalogs\Catalog.cs" />
     <Compile Include="Model\Catalogs\Category.cs" />
@@ -161,9 +165,12 @@
     <Compile Include="Model\Documents\WriteOff.cs" />
     <Compile Include="Model\Documents\MovementRow.cs" />
     <Compile Include="Model\Documents\WriteOffRow.cs" />
+    <Compile Include="Model\Registry\EquipmentRrequirementHelper.cs" />
+    <Compile Include="Model\Registry\EquipmentRrequirement.cs" />
     <Compile Include="Model\Registry\EquipmentMovement.cs" />
     <Compile Include="Model\Registry\Registry.cs" />
-    <Compile Include="Model\Registry\EquipmentMover.cs" />
+    <Compile Include="Model\Registry\EquipmentMovementHelper.cs" />
+    <Compile Include="Model\Registry\RegistryHelper.cs" />
     <Compile Include="Model\TableElement.cs" />
     <Compile Include="Model\Documents\Document.cs" />
     <Compile Include="Model\Documents\Rrequirement.cs" />
@@ -205,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202306070124331_Initial.resx">
       <DependentUpon>202306070124331_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202306070213150_EquipmentRrequirement.resx">
+      <DependentUpon>202306070213150_EquipmentRrequirement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

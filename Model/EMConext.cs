@@ -17,7 +17,9 @@ namespace EquipmentManagement.Model {
         public DbSet<Purchasing> Purchasings { get; set; }
         public DbSet<Movement> Movements { get; set; }
         public DbSet<WriteOff> WriteOffs { get; set; }
+
         public DbSet<EquipmentMovement> EquipmentMovements { get; set; }
+        public DbSet<EquipmentRrequirement> EquipmentRrequirement { get; set; }
 
         public EMContext() : base() {
             if (Settings.CreateDB) {

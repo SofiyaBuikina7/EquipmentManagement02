@@ -87,7 +87,7 @@ namespace EquipmentManagement {
             }
         }
 
-        public static bool CreateDB { get;  se
+        public static bool CreateDB { get; set; }
 
         private static void CreateDataBase(string FileName) {
             //SqlConnection connection = new SqlConnection(@"server=(localdb)\MSSQLLocalDB");
