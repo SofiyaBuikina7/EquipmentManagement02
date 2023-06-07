@@ -25,6 +25,7 @@ namespace EquipmentManagement.Forms {
         public Boolean CheckPassword() {
             User SelectedUser = (User)UserNameCB.SelectedItem;
             if (Utils.CreateMD5(PasswordTB.Text) == SelectedUser.PasswordMD5) {
+                Settings.CurrentSettings.CurrentUserId = SelectedUser.Id;
                 return true;
             } else {
                 MessageBox.Show("Пароль не верен!");
@@ -47,6 +48,7 @@ namespace EquipmentManagement.Forms {
                 count = db.Users.ToList().Count();
             }
             UserNameCB.DataSource = db.Users.ToList();
+            db.Dispose();
         }
 
         private void PasswordTB_KeyDown(object sender, KeyEventArgs e) {

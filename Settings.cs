@@ -12,23 +12,21 @@ namespace EquipmentManagement {
         public static string SettingsFileName = System.IO.Path.GetDirectoryName(Application.ExecutablePath) + @"\Settings.json";
         public static string TranslationsFileName = System.IO.Path.GetDirectoryName(Application.ExecutablePath) + @"\Translations.json";
         public static Settings CurrentSettings = LoadSettings();
-        //public static Dictionary<string, Dictionary<string, string>> Translations = LoadTranslations();
+        
         public static Dictionary<string, MyDictionary> Translations = LoadTranslations();
 
         public string SQLInstanceName { get; set; }
+
         public Font TableFont { get; set; }
         public Color EvenForeColor { get; set; }
         public Color EvenBackColor { get; set; }
         public Color OddForeColor { get; set; }
         public Color OddBackColor { get; set; }
-
-
-        //public Color NormalForeColor { get; set; }
-        //public Color NormalBackColor { get; set; }
-
+        
         public Color BadForeColor { get; set; }
         public Color BadBackColor { get; set; }
-
+        
+        public int CurrentUserId { get; set; }
 
         public void SaveSettings() {
             JsonSerializer serializer = new JsonSerializer();
@@ -89,7 +87,7 @@ namespace EquipmentManagement {
             }
         }
 
-        public static bool CreateDB { get;  set; }
+        public static bool CreateDB { get;  se
 
         private static void CreateDataBase(string FileName) {
             //SqlConnection connection = new SqlConnection(@"server=(localdb)\MSSQLLocalDB");
