@@ -142,29 +142,9 @@
     <Compile Include="Forms\MyDGV.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Migrations\202305260453162_Initial.cs" />
-    <Compile Include="Migrations\202305260453162_Initial.designer.cs">
-      <DependentUpon>202305260453162_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305260524087_AddEquipmentMovementRegistry.cs" />
-    <Compile Include="Migrations\202305260524087_AddEquipmentMovementRegistry.designer.cs">
-      <DependentUpon>202305260524087_AddEquipmentMovementRegistry.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305301852271_WriteOffRows.cs" />
-    <Compile Include="Migrations\202305301852271_WriteOffRows.designer.cs">
-      <DependentUpon>202305301852271_WriteOffRows.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202306051855582_InstalationLocationTable_Connect.cs" />
-    <Compile Include="Migrations\202306051855582_InstalationLocationTable_Connect.designer.cs">
-      <DependentUpon>202306051855582_InstalationLocationTable_Connect.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202306051901398_InstalationLocationTable_BugFix.cs" />
-    <Compile Include="Migrations\202306051901398_InstalationLocationTable_BugFix.designer.cs">
-      <DependentUpon>202306051901398_InstalationLocationTable_BugFix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202306070116211_AddDocumetMovement.cs" />
-    <Compile Include="Migrations\202306070116211_AddDocumetMovement.designer.cs">
-      <DependentUpon>202306070116211_AddDocumetMovement.cs</DependentUpon>
+    <Compile Include="Migrations\202306070124331_Initial.cs" />
+    <Compile Include="Migrations\202306070124331_Initial.designer.cs">
+      <DependentUpon>202306070124331_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Catalogs\Catalog.cs" />
@@ -223,23 +203,8 @@
     <EmbeddedResource Include="Forms\ElementsTableForm.resx">
       <DependentUpon>ElementsTableForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305260453162_Initial.resx">
-      <DependentUpon>202305260453162_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305260524087_AddEquipmentMovementRegistry.resx">
-      <DependentUpon>202305260524087_AddEquipmentMovementRegistry.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305301852271_WriteOffRows.resx">
-      <DependentUpon>202305301852271_WriteOffRows.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202306051855582_InstalationLocationTable_Connect.resx">
-      <DependentUpon>202306051855582_InstalationLocationTable_Connect.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202306051901398_InstalationLocationTable_BugFix.resx">
-      <DependentUpon>202306051901398_InstalationLocationTable_BugFix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202306070116211_AddDocumetMovement.resx">
-      <DependentUpon>202306070116211_AddDocumetMovement.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202306070124331_Initial.resx">
+      <DependentUpon>202306070124331_Initial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

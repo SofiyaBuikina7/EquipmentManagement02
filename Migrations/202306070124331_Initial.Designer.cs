@@ -7,13 +7,13 @@ namespace EquipmentManagement.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class AddDocumetMovement : IMigrationMetadata
+    public sealed partial class Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddDocumetMovement));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "202306070116211_AddDocumetMovement"; }
+            get { return "202306070124331_Initial"; }
         }
         
         string IMigrationMetadata.Source
