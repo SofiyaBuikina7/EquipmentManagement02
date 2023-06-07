@@ -13,7 +13,7 @@ namespace EquipmentManagement.Model {
         public DbSet<InstallationLocation> InstallationLocations { get; set; }
         public DbSet<ResponsiblePerson> ResponsiblePersons { get; set; }
 
-        public DbSet<Rrequirement> Rrequirements { get; set; }
+        public DbSet<Requirement> Requirements { get; set; }
         public DbSet<Purchasing> Purchasings { get; set; }
         public DbSet<Movement> Movements { get; set; }
         public DbSet<WriteOff> WriteOffs { get; set; }
@@ -22,6 +22,7 @@ namespace EquipmentManagement.Model {
         public DbSet<EquipmentRrequirement> EquipmentRrequirement { get; set; }
 
         public EMContext() : base() {
+            //this.Configuration.LazyLoadingEnabled = false;
             if (Settings.CreateDB) {
                 Database.SetInitializer(new CreateDatabaseIfNotExists<EMContext>());
             } else {

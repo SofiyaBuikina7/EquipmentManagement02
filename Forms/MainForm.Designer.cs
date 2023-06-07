@@ -38,18 +38,22 @@ namespace EquipmentManagement {
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.пользователиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.перемещениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалениеПомеченныхОбъектовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainMenu
             // 
+            this.MainMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.документыToolStripMenuItem,
             this.справочникToolStripMenuItem,
             this.настройкиToolStripMenuItem});
             this.MainMenu.Location = new System.Drawing.Point(0, 0);
             this.MainMenu.Name = "MainMenu";
-            this.MainMenu.Size = new System.Drawing.Size(593, 24);
+            this.MainMenu.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.MainMenu.Size = new System.Drawing.Size(791, 24);
             this.MainMenu.TabIndex = 2;
             this.MainMenu.Text = "menuStrip1";
             // 
@@ -58,6 +62,7 @@ namespace EquipmentManagement {
             this.документыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.потребностьToolStripMenuItem,
             this.закупкаToolStripMenuItem,
+            this.перемещениеToolStripMenuItem,
             this.списаниеToolStripMenuItem});
             this.документыToolStripMenuItem.Name = "документыToolStripMenuItem";
             this.документыToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
@@ -66,21 +71,21 @@ namespace EquipmentManagement {
             // потребностьToolStripMenuItem
             // 
             this.потребностьToolStripMenuItem.Name = "потребностьToolStripMenuItem";
-            this.потребностьToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.потребностьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.потребностьToolStripMenuItem.Text = "Потребность";
             this.потребностьToolStripMenuItem.Click += new System.EventHandler(this.потребностьToolStripMenuItem_Click);
             // 
             // закупкаToolStripMenuItem
             // 
             this.закупкаToolStripMenuItem.Name = "закупкаToolStripMenuItem";
-            this.закупкаToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.закупкаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.закупкаToolStripMenuItem.Text = "Закупка";
             this.закупкаToolStripMenuItem.Click += new System.EventHandler(this.закупкаToolStripMenuItem_Click);
             // 
             // списаниеToolStripMenuItem
             // 
             this.списаниеToolStripMenuItem.Name = "списаниеToolStripMenuItem";
-            this.списаниеToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.списаниеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.списаниеToolStripMenuItem.Text = "Списание";
             this.списаниеToolStripMenuItem.Click += new System.EventHandler(this.списаниеToolStripMenuItem_Click);
             // 
@@ -135,7 +140,8 @@ namespace EquipmentManagement {
             // 
             this.настройкиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.настройкиToolStripMenuItem1,
-            this.пользователиToolStripMenuItem1});
+            this.пользователиToolStripMenuItem1,
+            this.удалениеПомеченныхОбъектовToolStripMenuItem});
             this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
             this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.настройкиToolStripMenuItem.Text = "Настройки";
@@ -154,14 +160,29 @@ namespace EquipmentManagement {
             this.пользователиToolStripMenuItem1.Text = "Пользователи";
             this.пользователиToolStripMenuItem1.Click += new System.EventHandler(this.пользователиToolStripMenuItem1_Click);
             // 
+            // перемещениеToolStripMenuItem
+            // 
+            this.перемещениеToolStripMenuItem.Name = "перемещениеToolStripMenuItem";
+            this.перемещениеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.перемещениеToolStripMenuItem.Text = "Перемещение";
+            this.перемещениеToolStripMenuItem.Click += new System.EventHandler(this.перемещениеToolStripMenuItem_Click);
+            // 
+            // удалениеПомеченныхОбъектовToolStripMenuItem
+            // 
+            this.удалениеПомеченныхОбъектовToolStripMenuItem.Name = "удалениеПомеченныхОбъектовToolStripMenuItem";
+            this.удалениеПомеченныхОбъектовToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
+            this.удалениеПомеченныхОбъектовToolStripMenuItem.Text = "Удаление помеченных объектов";
+            this.удалениеПомеченныхОбъектовToolStripMenuItem.Click += new System.EventHandler(this.удалениеПомеченныхОбъектовToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(593, 450);
+            this.ClientSize = new System.Drawing.Size(791, 554);
             this.Controls.Add(this.MainMenu);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.MainMenu;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -189,6 +210,8 @@ namespace EquipmentManagement {
         private System.Windows.Forms.ToolStripMenuItem пользователиToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem местаРасположенияТехникиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem единицыИзмеренияToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem перемещениеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem удалениеПомеченныхОбъектовToolStripMenuItem;
     }
 }
 

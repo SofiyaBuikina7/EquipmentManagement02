@@ -17,7 +17,7 @@ namespace EquipmentManagement.Forms {
         User MyElement;
         EMContext ctx = new EMContext();
         bool PasswordChanges = false;
-        public UserForm(int ElementID = -1) {
+        public UserForm(int ElementID = -1, bool NeedCopy = false) {
             InitializeComponent();
             
             if (ElementID == -1) {
@@ -27,6 +27,12 @@ namespace EquipmentManagement.Forms {
                 MyElement = query.Where(t => t.Id == ElementID).FirstOrDefault();
             }
             NameTb.Text = MyElement.Name;
+            if (NeedCopy) {
+                ctx.Dispose();
+                ctx = new EMContext();
+                ElementID = -1;
+                MyElement = new User();
+            }
         }
 
         private void SaveBtn_Click(object sender, EventArgs e) {

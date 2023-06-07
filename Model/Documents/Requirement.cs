@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace EquipmentManagement.Model.Documents {
-    public class Rrequirement:Document {
+    public class Requirement:Document {
         public string Reason { get; set; }
         public InstallationLocation InstallationLocation { get; set; }
         public List<RrequirementRow> Rows { get; set; }

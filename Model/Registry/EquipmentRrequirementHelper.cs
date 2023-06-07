@@ -39,9 +39,9 @@ namespace EquipmentManagement.Model.Registry {
             ctx.SaveChanges();
         }
 
-        public static void CreateMovement(Rrequirement document) {
+        public static void CreateMovement(Requirement document) {
             EMContext ctx = new EMContext();
-            Rrequirement Requirement = ctx.Set<Rrequirement>().Where(t => t.Id == document.Id).FirstOrDefault();
+            Requirement Requirement = ctx.Set<Requirement>().Where(t => t.Id == document.Id).FirstOrDefault();
             List<RrequirementRow> Rows = Requirement.Rows.ToList();
             foreach (var Row in Rows) {
                 EquipmentRrequirement registry = new EquipmentRrequirement();

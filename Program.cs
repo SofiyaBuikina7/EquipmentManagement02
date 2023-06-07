@@ -25,15 +25,20 @@ namespace EquipmentManagement {
             }
             
             SetConnectionString();
-            
-            try {
-                var loginForm = new LoginForm();
-                if (loginForm.ShowDialog() == DialogResult.OK) {
-                    Application.Run(new MainForm());
-                }
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message);
+            var loginForm = new LoginForm();
+            if (loginForm.ShowDialog() == DialogResult.OK) {
+                Application.Run(new MainForm());
             }
+
+
+            //try {
+            //    var loginForm = new LoginForm();
+            //    if (loginForm.ShowDialog() == DialogResult.OK) {
+            //        Application.Run(new MainForm());
+            //    }
+            //} catch (Exception ex) {
+            //    MessageBox.Show(ex.Message);
+            //}
         }
         static void SetConnectionString() {
             var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);

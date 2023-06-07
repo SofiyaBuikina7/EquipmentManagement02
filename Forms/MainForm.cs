@@ -25,7 +25,7 @@ namespace EquipmentManagement {
         }
 
         private void потребностьToolStripMenuItem_Click(object sender, EventArgs e) {
-            OpenTableForm<Rrequirement>();
+            OpenTableForm<Requirement>();
         }
 
         private void категорииToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -112,6 +112,16 @@ namespace EquipmentManagement {
             if (MessageBox.Show(this, "Вы уверенны что хотите выйти?", "Вы уверенны что хотите выйти?", MessageBoxButtons.YesNo) != DialogResult.Yes) {
                 e.Cancel = true;
             }
+        }
+
+        private void перемещениеToolStripMenuItem_Click(object sender, EventArgs e) {
+            OpenTableForm<Movement>();
+        }
+
+        private void удалениеПомеченныхОбъектовToolStripMenuItem_Click(object sender, EventArgs e) {
+            var RemovingForm = new RemoveMarkedForm();
+            RemovingForm.MdiParent = this;
+            RemovingForm.Show();
         }
     }
 }

@@ -4,6 +4,7 @@ using EquipmentManagement.Model.Catalogs;
 using EquipmentManagement.Model.Documents;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Windows.Forms;
 
 namespace EquipmentManagement {
@@ -16,8 +17,16 @@ namespace EquipmentManagement {
 
         void LoadTable() {
             var ctx = new EMContext();
-            var query = ctx.Set<TypeEntity>().AsQueryable();
-            var MyList = query.ToList();
+            IQueryable<TypeEntity> query;
+            List<TypeEntity> MyList;
+
+            if (typeof(TypeEntity) == typeof(Equipment)) {
+                MyList = ctx.Equipment.Include(p => p.Unit).Include(s => s.Category).ToList() as List<TypeEntity>;
+            } else {
+                query = ctx.Set<TypeEntity>().AsQueryable();
+                MyList = query.ToList();
+            }
+
             MainListDGV.DataSource = MyList;
             PrepareDGV(ref MainListDGV, MyList);
             SetTablesStyle();
@@ -27,6 +36,7 @@ namespace EquipmentManagement {
 
         private void MainListDGV_KeyDown(object sender, KeyEventArgs e) {
             Form NewForm = null;
+            bool SetFormProperties = false;
             if (e.KeyCode == Keys.Insert) {
                 if (typeof(TypeEntity).IsSubclassOf(typeof(Document))) {
                     NewForm = new DocumentForm<TypeEntity>();
@@ -35,6 +45,7 @@ namespace EquipmentManagement {
                 } else {
                     NewForm = new ElementForm<TypeEntity>();
                 }
+                SetFormProperties = true;
             }
             if (e.KeyCode == Keys.Enter) {
                 if (MainListDGV.SelectedCells != null && MainListDGV.SelectedCells.Count > 0) {
@@ -48,12 +59,35 @@ namespace EquipmentManagement {
                     } else {
                         NewForm = new ElementForm<TypeEntity>(Id);
                     }
+                    SetFormProperties = true;
                 }
             }
-            NewForm.MdiParent = this.MdiParent;
-            NewForm.FormClosed += new FormClosedEventHandler(OnChildFormClosed);
-            NewForm.Show();
 
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.F9) {
+                if (MainListDGV.SelectedCells != null && MainListDGV.SelectedCells.Count > 0) {
+                    var MyCell = MainListDGV.SelectedCells[0];
+                    int Id = (int)MainListDGV.Rows[MyCell.RowIndex].Cells["Id"].Value;
+                    bool NeedCopy = false;
+                    if (e.KeyCode == Keys.F9) {
+                        NeedCopy = true;
+                    }
+
+                    if (typeof(TypeEntity).IsSubclassOf(typeof(Document))) {
+                        NewForm = new DocumentForm<TypeEntity>(Id, NeedCopy);
+                    } else if (typeof(TypeEntity) == typeof(User)) {
+                        NewForm = new UserForm(Id, NeedCopy);
+                    } else {
+                        NewForm = new ElementForm<TypeEntity>(Id, NeedCopy);
+                    }
+                    SetFormProperties = true;
+                }
+            }
+
+            if (SetFormProperties) {
+                NewForm.MdiParent = this.MdiParent;
+                NewForm.FormClosed += new FormClosedEventHandler(OnChildFormClosed);
+                NewForm.Show();
+            }
         }
 
         void OnChildFormClosed(object sender, FormClosedEventArgs e) {
