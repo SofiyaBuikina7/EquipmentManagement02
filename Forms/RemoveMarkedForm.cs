@@ -70,6 +70,16 @@ namespace EquipmentManagement.Forms {
             ctx.Dispose();
             TextToConsoleRTB("Удалено документов " + DocsCount.ToString(), Color.Black);
         }
+        int RemoveMyDocs<DocType>() {
+            var ctx = new EMContext();
+            int DocsCount = 0;
+
+            var WriteOffs = ctx.WriteOffs.Where(s => s.IsMarkedForDeletion).Include(p => p.Rows).ToList();
+            DocsCount += WriteOffs.Count;
+            ctx.WriteOffs.RemoveRange(WriteOffs);
+
+            return 0;
+        }
         void RemoveCatalogs() {
             var ctx = new EMContext();
             int DocsCount = 0;

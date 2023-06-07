@@ -148,6 +148,7 @@
     <Compile Include="Forms\MyDGV.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="IncludeAttribute.cs" />
     <Compile Include="Migrations\202306070124331_Initial.cs" />
     <Compile Include="Migrations\202306070124331_Initial.designer.cs">
       <DependentUpon>202306070124331_Initial.cs</DependentUpon>

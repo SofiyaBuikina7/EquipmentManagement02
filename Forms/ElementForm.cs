@@ -25,8 +25,13 @@ namespace EquipmentManagement.Forms {
             if (ElementID == -1) {
                 MyElement = new TypeEntity();
             } else {
-                var query = ctx.Set<TypeEntity>().AsQueryable();
-                MyElement = (TableElement)query.Where(t => t.Id == ElementID).FirstOrDefault();
+                if (NeedCopy) {
+                    var query = ctx.Set<TypeEntity>().AsNoTracking().AsQueryable().LoadRelated();
+                    MyElement = (TableElement)query.Where(t => t.Id == ElementID).FirstOrDefault();
+                } else {
+                    var query = ctx.Set<TypeEntity>().AsQueryable();
+                    MyElement = (TableElement)query.Where(t => t.Id == ElementID).FirstOrDefault();
+                }
             }
             int offset = 5;
             int Y = PatternLb.Top;
@@ -74,10 +79,7 @@ namespace EquipmentManagement.Forms {
             PatternLb.Visible = false;
             PatternTb.Visible = false;
             if (NeedCopy) {
-                ctx.Dispose();
-                ctx = new EMContext();
-                ElementID = -1;
-                MyElement = new TypeEntity();
+                MyElement.Id = 0;
             }
         }
 
