@@ -150,6 +150,10 @@
     <Compile Include="Migrations\202306070213150_EquipmentRrequirement.designer.cs">
       <DependentUpon>202306070213150_EquipmentRrequirement.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202306070232099_RegistryMovementMoment.cs" />
+    <Compile Include="Migrations\202306070232099_RegistryMovementMoment.designer.cs">
+      <DependentUpon>202306070232099_RegistryMovementMoment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Catalogs\Catalog.cs" />
     <Compile Include="Model\Catalogs\Category.cs" />
@@ -215,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202306070213150_EquipmentRrequirement.resx">
       <DependentUpon>202306070213150_EquipmentRrequirement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202306070232099_RegistryMovementMoment.resx">
+      <DependentUpon>202306070232099_RegistryMovementMoment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

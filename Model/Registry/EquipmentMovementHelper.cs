@@ -40,5 +40,20 @@ namespace EquipmentManagement.Model.Registry {
             }
             ctx.SaveChanges();
         }
+
+        public static void GetLeftovers(DateTime dateTime) {
+            EMContext ctx = new EMContext();
+            var EquipmentMovements = ctx.Set<EquipmentMovement>().
+                Where(t => t.MovementMoment <= dateTime).
+                Select(s => new { Quantity = s.Direction * s.Quantity, s.Equipment, s.InstallationLocation }).
+                GroupBy(g => new { g.Equipment, g.InstallationLocation }).
+                Select(x => new {
+                    Equipment = x.Key.Equipment,
+                    InstallationLocation = x.Key.InstallationLocation,
+                    Leftover = x.Sum(y => y.Quantity)
+                }).
+                ToList();
+        }
+
     }
 }

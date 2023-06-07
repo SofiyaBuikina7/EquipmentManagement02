@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace EquipmentManagement.Model.Registry {
     public class Registry {
         public int Id { get; set; }
+        public DateTime MovementMoment { get; set; }
         public int Direction { get; set; }
         public int RegistratorId { get; set; }
         public string RegistratorType { get; set; }
