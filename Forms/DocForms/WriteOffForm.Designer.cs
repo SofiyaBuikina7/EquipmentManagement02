@@ -2,7 +2,7 @@
 
 namespace EquipmentManagement
 {
-    partial class DocumentForm<TypeEntity> {
+    partial class WriteOffForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>

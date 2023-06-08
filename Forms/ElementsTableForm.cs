@@ -35,7 +35,7 @@ namespace EquipmentManagement {
             bool SetFormProperties = false;
             if (e.KeyCode == Keys.Insert) {
                 if (typeof(TypeEntity).IsSubclassOf(typeof(Document))) {
-                    NewForm = new DocumentForm<TypeEntity>();
+                    NewForm = GetDocumentForm<TypeEntity>();
                 } else if (typeof(TypeEntity) == typeof(User)) {
                     NewForm = new UserForm();
                 } else {
@@ -54,7 +54,7 @@ namespace EquipmentManagement {
                     }
 
                     if (typeof(TypeEntity).IsSubclassOf(typeof(Document))) {
-                        NewForm = new DocumentForm<TypeEntity>(Id, NeedCopy);
+                        NewForm = GetDocumentForm<TypeEntity>(Id, NeedCopy);
                     } else if (typeof(TypeEntity) == typeof(User)) {
                         NewForm = new UserForm(Id, NeedCopy);
                     } else {
@@ -91,6 +91,12 @@ namespace EquipmentManagement {
             }
         }
 
+        Form GetDocumentForm<T>(int ElementID = -1, bool NeedCopy = false) where T: TableElement, new(){
+            if (typeof(T) == typeof(WriteOff)) {
+                return new WriteOffForm(ElementID, NeedCopy);
+            }
+            return new DocumentForm<T>(ElementID, NeedCopy);
+        }
         void OnChildFormClosed(object sender, FormClosedEventArgs e) {
             LoadTable();
             //Form frm = (Form)sender;

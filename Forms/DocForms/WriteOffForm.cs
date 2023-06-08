@@ -1,5 +1,7 @@
 ﻿using EquipmentManagement.Forms;
 using EquipmentManagement.Model;
+using EquipmentManagement.Model.Catalogs;
+using EquipmentManagement.Model.Documents;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,27 +10,54 @@ using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
-
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EquipmentManagement
 {
-    public partial class PurchasingForm<DocTypeEntry> : DocumentForm<DocTypeEntry> where DocTypeEntry : TableElement, new() {
-        public PurchasingForm(){
-            base.InitializeComponent();
-            this.Text = Utils.GetTableNameTranslation<DocTypeEntry>();
-            LoadTable();
-            //MainListDGV.DataSource = list;
+    public partial class WriteOffForm : Form {
+        bool IsNew = false;
+        bool IsCopy = false;
+        int DocID = 0;
+        WriteOff ThisDoc;
+
+        public WriteOffForm(int ElementID = -1, bool NeedCopy = false) {
+            IsCopy = NeedCopy;
+            if (ElementID == -1 || NeedCopy) {
+                IsNew = true;
+            }
+            if (ElementID != -1) {
+                DocID = ElementID;
+            }
+            InitializeComponent();
+            var Users = GetCtalogList<User>();
+            AuthorCB.DataSource = Users;
+            if (IsNew) {
+                DocDateDTP.Value = DateTime.Now;
+                AuthorCB.SelectedItem = Users.Where(p => p.Id == Settings.CurrentSettings.CurrentUserId).FirstOrDefault();
+            } else { 
+
+            }
         }
 
+        void LoadDoc() {
+            LoadTable();
+        }
+
+        List<T> GetCtalogList<T>() where T:Catalog {
+            var ctx = new EMContext();
+            var Result = ctx.Set<T>().AsQueryable().LoadRelated().AsNoTracking().ToList();
+            ctx.Dispose();
+            return Result;
+        }
+            
         void LoadTable() {
             var ctx = new EMContext();
-            var query = ctx.Set<DocTypeEntry>().AsQueryable();
-            var MyList = query.ToList();
-            MainListDGV.DataSource = MyList;
-            PrepareDGV(ref MainListDGV, MyList);
+            //var query = ctx.Set<TypeEntity>().AsQueryable();
+            //var MyList = query.ToList();
+            //MainListDGV.DataSource = MyList;
+            //PrepareDGV(ref MainListDGV, MyList);
             SetTablesStyle();
             ctx.Dispose();
             MainListDGV.ColumnsResize();

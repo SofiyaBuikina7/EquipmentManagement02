@@ -1,33 +1,28 @@
 ﻿using EquipmentManagement.Forms;
 using EquipmentManagement.Model;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.Entity;
-using System.Drawing;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.Entity;
+
+
 using System.Windows.Forms;
+using EquipmentManagement.Model.Documents;
 
 namespace EquipmentManagement
 {
-    public partial class DocumentForm<TypeEntity>: Form where TypeEntity : TableElement, new() {
+    public partial class DocumentForm<TypeEntity> : Form where TypeEntity: TableElement, new() {
         public DocumentForm(int ElementID = -1, bool NeedCopy = false) {
             InitializeComponent();
-            this.Text = Utils.GetTableNameTranslation<TypeEntity>();
             LoadTable();
             //MainListDGV.DataSource = list;
         }
 
         void LoadTable() {
             var ctx = new EMContext();
-            var query = ctx.Set<TypeEntity>().AsQueryable();
-            var MyList = query.ToList();
-            MainListDGV.DataSource = MyList;
-            PrepareDGV(ref MainListDGV, MyList);
+            var query = ctx.Set<TypeEntity>().AsQueryable().LoadRelated();
+            
+            //MainListDGV.DataSource = MyList;
+            //PrepareDGV(ref MainListDGV, MyList);
             SetTablesStyle();
             ctx.Dispose();
             MainListDGV.ColumnsResize();
