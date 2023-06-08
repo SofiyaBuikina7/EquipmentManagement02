@@ -12,6 +12,7 @@ namespace EquipmentManagement.Model.Documents {
         public InstallationLocation To { get; set; }
         public ResponsiblePerson ResponsiblePersonFrom { get; set; }
         public ResponsiblePerson ResponsiblePersonTo { get; set; }
+        [Include]
         public List<MovementRow> Rows { get; set; }
     }
 }

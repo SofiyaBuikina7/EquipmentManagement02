@@ -33,18 +33,19 @@ namespace EquipmentManagement.Forms {
             this.ConsoleRTB.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ConsoleRTB.Location = new System.Drawing.Point(-6, 1);
-            this.ConsoleRTB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ConsoleRTB.Location = new System.Drawing.Point(-4, 1);
+            this.ConsoleRTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ConsoleRTB.Name = "ConsoleRTB";
-            this.ConsoleRTB.Size = new System.Drawing.Size(461, 421);
+            this.ConsoleRTB.Size = new System.Drawing.Size(347, 343);
             this.ConsoleRTB.TabIndex = 14;
             this.ConsoleRTB.Text = "";
             // 
             // RemoveBtn
             // 
-            this.RemoveBtn.Location = new System.Drawing.Point(3, 427);
+            this.RemoveBtn.Location = new System.Drawing.Point(2, 347);
+            this.RemoveBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RemoveBtn.Name = "RemoveBtn";
-            this.RemoveBtn.Size = new System.Drawing.Size(452, 25);
+            this.RemoveBtn.Size = new System.Drawing.Size(339, 20);
             this.RemoveBtn.TabIndex = 15;
             this.RemoveBtn.Text = "Удалить помеченные на удаление объекты";
             this.RemoveBtn.UseVisualStyleBackColor = true;
@@ -52,13 +53,14 @@ namespace EquipmentManagement.Forms {
             // 
             // RemoveMarkedForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(453, 450);
+            this.ClientSize = new System.Drawing.Size(340, 366);
             this.Controls.Add(this.RemoveBtn);
             this.Controls.Add(this.ConsoleRTB);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "RemoveMarkedForm";
-            this.Text = "RemoveMarkedForm";
+            this.Text = "Удалить помеченные на удаление объекты";
             this.ResumeLayout(false);
 
         }

@@ -20,12 +20,8 @@ namespace EquipmentManagement {
             IQueryable<TypeEntity> query;
             List<TypeEntity> MyList;
 
-            if (typeof(TypeEntity) == typeof(Equipment)) {
-                MyList = ctx.Equipment.Include(p => p.Unit).Include(s => s.Category).ToList() as List<TypeEntity>;
-            } else {
-                query = ctx.Set<TypeEntity>().AsQueryable();
-                MyList = query.ToList();
-            }
+            query = ctx.Set<TypeEntity>().AsQueryable().LoadRelated();
+            MyList = query.ToList();
 
             MainListDGV.DataSource = MyList;
             PrepareDGV(ref MainListDGV, MyList);
@@ -47,22 +43,7 @@ namespace EquipmentManagement {
                 }
                 SetFormProperties = true;
             }
-            if (e.KeyCode == Keys.Enter) {
-                if (MainListDGV.SelectedCells != null && MainListDGV.SelectedCells.Count > 0) {
-                    var MyCell = MainListDGV.SelectedCells[0];
-                    int Id = (int)MainListDGV.Rows[MyCell.RowIndex].Cells["Id"].Value;
-
-                    if (typeof(TypeEntity).IsSubclassOf(typeof(Document))) {
-                        NewForm = new DocumentForm<TypeEntity>(Id);
-                    } else if (typeof(TypeEntity) == typeof(User)) {
-                        NewForm = new UserForm(Id);
-                    } else {
-                        NewForm = new ElementForm<TypeEntity>(Id);
-                    }
-                    SetFormProperties = true;
-                }
-            }
-
+    
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.F9) {
                 if (MainListDGV.SelectedCells != null && MainListDGV.SelectedCells.Count > 0) {
                     var MyCell = MainListDGV.SelectedCells[0];
@@ -83,6 +64,26 @@ namespace EquipmentManagement {
                 }
             }
 
+            if (e.KeyCode == Keys.Delete) {
+                if (MainListDGV.SelectedCells != null && MainListDGV.SelectedCells.Count > 0) {
+                    var MyCell = MainListDGV.SelectedCells[0];
+                    int Id = (int)MainListDGV.Rows[MyCell.RowIndex].Cells["Id"].Value;
+                    var ctx = new EMContext();
+                    var Element = ctx.Set<TypeEntity>().AsQueryable().Where(p => p.Id == Id).FirstOrDefault();
+                    var QuestionString = "Пометить на удаление?";
+                    if (Element.IsMarkedForDeletion) {
+                        QuestionString = "Снять пометку на удаление?";
+                    }
+
+                    if (MessageBox.Show(this, QuestionString, QuestionString, MessageBoxButtons.YesNoCancel) == DialogResult.Yes) {
+                        Element.IsMarkedForDeletion = !Element.IsMarkedForDeletion;
+                        ctx.SaveChanges();
+                    }
+                    ctx.Dispose();
+                    LoadTable();
+                }
+            }
+                
             if (SetFormProperties) {
                 NewForm.MdiParent = this.MdiParent;
                 NewForm.FormClosed += new FormClosedEventHandler(OnChildFormClosed);

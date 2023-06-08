@@ -17,7 +17,6 @@ namespace EquipmentManagement.Forms {
         TableElement MyElement;
         EMContext ctx = new EMContext();
         public ElementForm(int ElementID = -1, bool NeedCopy = false) {
-            
 
             InitializeComponent();
             this.Text = Utils.GetTableNameTranslation<TypeEntity>(); 
@@ -45,14 +44,18 @@ namespace EquipmentManagement.Forms {
                         PropTb = PatternCb.Clone();
                         var Value = Prop.GetValue(MyElement);
                         if (Props[i].PropertyType == typeof(Unit)) {
-                            ((ComboBox)PropTb).DataSource = ctx.Units.ToList();
-                            
+                            var MyList = ctx.Units.ToList();
+                            ((ComboBox)PropTb).DataSource = MyList;
+                            var CurValue = (Unit)Prop.GetValue(MyElement);
+                            ((ComboBox)PropTb).SelectedItem = MyList.Where(p => p.Id == CurValue.Id).FirstOrDefault();
                         }
                         if (Props[i].PropertyType == typeof(Category)) {
-                            ((ComboBox)PropTb).DataSource = ctx.Categorys.ToList();
+                            var MyList = ctx.Categorys.ToList();
+                            ((ComboBox)PropTb).DataSource = MyList;
+                            var CurValue = (Category)Prop.GetValue(MyElement);
+                            ((ComboBox)PropTb).SelectedItem = MyList.Where(p => p.Id == CurValue.Id).FirstOrDefault();
                         }
 
-                        ((ComboBox)PropTb).SelectedItem = Prop.GetValue(MyElement);
                     } else {
                         PropTb = PatternTb.Clone();
                         var Text = Prop.GetValue(MyElement);

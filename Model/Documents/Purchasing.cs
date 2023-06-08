@@ -10,6 +10,7 @@ namespace EquipmentManagement.Model.Documents {
         public string Provider { get; set; }
         [Column(TypeName = "money")]
         public decimal Amount { get; set; }
+        [Include]
         public List<PurchasingRow> Rows { get; set; }
     }
 }

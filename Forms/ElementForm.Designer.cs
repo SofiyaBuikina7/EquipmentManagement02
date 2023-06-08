@@ -49,7 +49,7 @@ namespace EquipmentManagement.Forms {
             // 
             // SaveBtn
             // 
-            this.SaveBtn.Location = new System.Drawing.Point(139, 415);
+            this.SaveBtn.Location = new System.Drawing.Point(139, 175);
             this.SaveBtn.Name = "SaveBtn";
             this.SaveBtn.Size = new System.Drawing.Size(75, 23);
             this.SaveBtn.TabIndex = 2;
@@ -59,7 +59,7 @@ namespace EquipmentManagement.Forms {
             // 
             // SaveAndExit
             // 
-            this.SaveAndExit.Location = new System.Drawing.Point(220, 415);
+            this.SaveAndExit.Location = new System.Drawing.Point(220, 175);
             this.SaveAndExit.Name = "SaveAndExit";
             this.SaveAndExit.Size = new System.Drawing.Size(147, 23);
             this.SaveAndExit.TabIndex = 3;
@@ -80,7 +80,7 @@ namespace EquipmentManagement.Forms {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(369, 450);
+            this.ClientSize = new System.Drawing.Size(369, 215);
             this.Controls.Add(this.PatternCb);
             this.Controls.Add(this.SaveAndExit);
             this.Controls.Add(this.SaveBtn);

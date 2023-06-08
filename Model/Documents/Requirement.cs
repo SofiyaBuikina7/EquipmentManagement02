@@ -9,6 +9,7 @@ namespace EquipmentManagement.Model.Documents {
     public class Requirement:Document {
         public string Reason { get; set; }
         public InstallationLocation InstallationLocation { get; set; }
+        [Include]
         public List<RrequirementRow> Rows { get; set; }
     }
 }

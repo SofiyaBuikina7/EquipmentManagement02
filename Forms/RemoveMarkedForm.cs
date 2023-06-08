@@ -7,6 +7,7 @@ using System.Linq;
 using System.Data.Entity;
 using System.Windows.Forms;
 using System.Drawing;
+using EquipmentManagement.Model.Catalogs;
 
 namespace EquipmentManagement.Forms {
     public partial class RemoveMarkedForm : Form {
@@ -26,6 +27,7 @@ namespace EquipmentManagement.Forms {
             TextToConsoleRTB("Начато удаление помеченых элементов справочников", Color.Red);
             RemoveCatalogs();
         }
+            
         public void TextToConsoleRTB(string Text, Color color) {
             if (!this.IsHandleCreated || this.IsDisposed) return;
 
@@ -37,10 +39,8 @@ namespace EquipmentManagement.Forms {
                 this.Invoke((MethodInvoker)delegate {
                     ConsoleRTB.SelectionStart = ConsoleRTB.TextLength;
                     ConsoleRTB.SelectionLength = 0;
-
-
                     ConsoleRTB.SelectionColor = color;
-                    ConsoleRTB.AppendText(Text);
+                    ConsoleRTB.AppendText(Text + "\n");
                     ConsoleRTB.SelectionColor = ConsoleRTB.ForeColor;
                     ConsoleRTB.ScrollToCaret();
                 });
@@ -48,46 +48,50 @@ namespace EquipmentManagement.Forms {
         }
 
         void RemoveDocs() {
-            var ctx = new EMContext();
-            int DocsCount = 0;
-            var WriteOffs = ctx.WriteOffs.Where(s => s.IsMarkedForDeletion).Include(p => p.Rows).ToList();
-            DocsCount += WriteOffs.Count;
-            ctx.WriteOffs.RemoveRange(WriteOffs);
+            int RemovedCount = 0;
+            RemovedCount += RemoveElements<WriteOff>();
+            RemovedCount += RemoveElements<Movement>();
+            RemovedCount += RemoveElements<Purchasing>();
+            RemovedCount += RemoveElements<Requirement>();
 
-            var Movements = ctx.Movements.Where(s => s.IsMarkedForDeletion).Include(p => p.Rows).ToList();
-            DocsCount += Movements.Count;
-            ctx.Movements.RemoveRange(Movements);
-
-            var Purchasings = ctx.Purchasings.Where(s => s.IsMarkedForDeletion).Include(p => p.Rows).ToList();
-            DocsCount += Purchasings.Count;
-            ctx.Purchasings.RemoveRange(Purchasings);
-
-            var Rrequirements = ctx.Requirements.Where(s => s.IsMarkedForDeletion).Include(p => p.Rows).ToList();
-            DocsCount += Rrequirements.Count;
-            ctx.Requirements.RemoveRange(Rrequirements);
-
-            ctx.SaveChanges();
-            ctx.Dispose();
-            TextToConsoleRTB("Удалено документов " + DocsCount.ToString(), Color.Black);
+            TextToConsoleRTB("Удалено документов " + RemovedCount.ToString(), Color.Black);
         }
-        int RemoveMyDocs<DocType>() {
+        
+        int RemoveElements<DocType>() where DocType : TableElement {
             var ctx = new EMContext();
-            int DocsCount = 0;
-
-            var WriteOffs = ctx.WriteOffs.Where(s => s.IsMarkedForDeletion).Include(p => p.Rows).ToList();
-            DocsCount += WriteOffs.Count;
-            ctx.WriteOffs.RemoveRange(WriteOffs);
-
-            return 0;
-        }
-        void RemoveCatalogs() {
-            var ctx = new EMContext();
-            int DocsCount = 0;
+            int RemovedCount = 0;
+            var ListToRemove = ctx.Set<DocType>().AsQueryable().Where(s => s.IsMarkedForDeletion).ToList();
             
-            ctx.SaveChanges();
-            ctx.Dispose();
-            TextToConsoleRTB("Удалено помеченых элементов справочников " + DocsCount.ToString(), Color.Black);
+
+            foreach (var item in ListToRemove) {
+                ctx.Set<DocType>().Remove(item);
+                try {
+                    ctx.SaveChanges();
+                    RemovedCount += ListToRemove.Count;
+                } catch (Exception e) {
+                    TextToConsoleRTB("Ошибка удвления " + item.ToString(), Color.Red);
+                }
+            }
+            return RemovedCount;
         }
+
+        void RemoveCatalogs() {
+            int RemovedCount = 0;
+            RemovedCount += RemoveElements<Equipment>();
+            
+            RemovedCount += RemoveElements<Category>();
+            RemovedCount += RemoveElements<Unit>();
+            RemovedCount += RemoveElements<InstallationLocation>();
+            RemovedCount += RemoveElements<ResponsiblePerson>();
+            RemovedCount += RemoveElements<User>();
+
+            TextToConsoleRTB("Удалено помеченых элементов справочников " + RemovedCount.ToString(), Color.Black);
+        }
+
+        //Old Deletion
+        //var Rrequirements = ctx.Requirements.Where(s => s.IsMarkedForDeletion).Include(p => p.Rows).ToList();
+        //RemovedCount += Rrequirements.Count;
+        //ctx.Requirements.RemoveRange(Rrequirements);
 
     }
 }
